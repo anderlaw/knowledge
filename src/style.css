@@ -1,0 +1,96 @@
+.clearfix::after{
+  clear: both;
+  content: '';
+  display: block;
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  transition: all .3s ease-in-out;
+  -webkit-border-radius: 3px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #f2f2f2;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  transition: all .3s ease-in-out;
+  width: 6px;
+  height: 6px;
+} /* 滑块颜色 */
+
+::-webkit-scrollbar-button {
+  display: none;
+} /* 滑轨两头的监听按钮颜色 */
+/* search-bar */
+
+.search__bar{
+  height: 50px;
+  background-color: #142c63;
+}
+.search__bar__layout{
+  line-height: 50px;
+  width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+/* chart */
+.chart_bg{
+  background-image: url(./assets/chart_bg.jpg);
+  background-repeat:no-repeat;
+  background-size: 100% 100%;
+  height: calc(100% - 50px);
+}
+/* 检索页面的按钮 */
+.search-btn{
+  line-height: 1;
+  text-align: center;
+  font-size: 13px;
+  width:40px;
+  display: inline-block;
+  cursor: pointer;
+  color:#FFF;
+  padding:9px 10px;
+  vertical-align: -1px;
+  border-radius:0px 2px 2px 0px;
+  background-image:linear-gradient(135deg,#a2fff5,#47bcff);
+}
+/* 按钮 */
+.button{
+  display: inline-block;
+  padding:6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.default{
+  background-color: #0084ff;
+  color: #fff;
+}
+/* 标题文字颜色 */
+.strong{
+  color: #142c63;
+  font-weight: bold;
+}
+.inline-item {
+  width:200px;
+  display: inline-block;
+}
+
+/* tab-box */
+.tab-box{
+  border: 1px solid #f2f2f2;
+  padding: 10px 0;
+  width:24%;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+}
+.tab-box:not(:last-child){
+  border-right: none;
+}
