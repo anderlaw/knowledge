@@ -167,17 +167,25 @@
 <script>
 import Table from '@/components/table'
 import MergeTable from '@/components/merge-table'
+
+import { getInfoGongShang } from '@/http/info'
 export default {
   components:{Table,MergeTable},
   data(){
     return {
       keyWord:'',
+      mainData:''
     }
   },
   methods:{
     handleSearch(){
 
-    }
+    },
+  },
+  mounted(){
+    getInfoGongShang().then(res=>{
+      console.log(res);
+    });
   }
 }
 </script>
