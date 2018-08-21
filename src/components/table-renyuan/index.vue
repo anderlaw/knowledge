@@ -10,36 +10,18 @@
       border
       style="width: 100%">
       <el-table-column
+        type="index"
+        label="序号">
+      </el-table-column>
+      <el-table-column
         prop="Name"
-        label="股东名称"
-        width="180">
+        label="姓名">
       </el-table-column>
       <el-table-column
-        prop="StockType"
-        label="股份类型">
-        <template slot-scope="scope">
-          <span v-if="scope.row.IsAbsoluteController == 'True'">
-            流通H股
-          </span>
-          <span v-else>
-            流通A股
-          </span>
-        </template>
+        prop="Job"
+        label="职务">
       </el-table-column>
-      <el-table-column
-        prop="SubConAmt"
-        label="持股数(股)">
-      </el-table-column>
-      <el-table-column
-        prop="FundedRatio"
-        label="持股比例">
-      </el-table-column>
-      <el-table-column
-        label="增减（股）">
-      </el-table-column>
-      <el-table-column
-        label="变动比例">
-      </el-table-column>
+
     </el-table>
 
   </div>
