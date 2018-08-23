@@ -1,2 +1,1 @@
-import './gongshang'
-import './guquan'
+import './gs'
