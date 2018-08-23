@@ -126,7 +126,7 @@
           最终受益人
         </div>
         <div :class="{ 'anchor-link':true,'active':anchorActive == 'fx' }" @click='jumpToAnchor("fx")'>
-          风险事件
+          失信信息
         </div>
       </div>
       <!-- 工商信息 -->
@@ -418,10 +418,11 @@ export default {
         //成功
         this.mainData = JSON.parse(res.data.data.companyInfo.companyGsxx).Result;
         this.mainData_guquan = JSON.parse(res.data.data.guquan[0].children).Result;
+
         this.mainDate_shouyiren=[JSON.parse(res.data.data.beneficiaries[0].beneficiaryR).Result];
-        console.log(this.mainDate_shouyiren);
 
 
+        sessionStorage.setItem('mainData_guquan',JSON.stringify(JSON.parse(res.data.data.guquan[0].children).Result))
       }
     });
 
@@ -451,5 +452,8 @@ export default {
   }
   .table{
 
+  }
+  .bg-section td{
+    padding:6px;
   }
 </style>
