@@ -126,7 +126,7 @@
           最终受益人
         </div>
         <div :class="{ 'anchor-link':true,'active':anchorActive == 'fx' }" @click='jumpToAnchor("fx")'>
-          风险事件
+          失信信息
         </div>
       </div>
       <!-- 工商信息 -->
@@ -417,5 +417,8 @@ export default {
   }
   .table{
 
+  }
+  .bg-section td{
+    padding:6px;
   }
 </style>
