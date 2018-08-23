@@ -1,1006 +1,537 @@
 export default {
-  "name": "flare",
+  "Name": "海通证券股份有限公司",
+  "KeyNo": "56777fa57d850f62a5225be7d974a17e",
+  "Category": "1",
+  "Count": "10",
+  "FundedRatio": "100%",
   "children": [{
-          "name": "analytics",
-          "children": [{
-                  "name": "cluster",
-                  "children": [{
-                          "name": "AgglomerativeCluster",
-                          "size": 3938
-                      },
-                      {
-                          "name": "CommunityStructure",
-                          "size": 3812
-                      },
-                      {
-                          "name": "HierarchicalCluster",
-                          "size": 6714
-                      },
-                      {
-                          "name": "MergeEdge",
-                          "size": 743
-                      }
-                  ]
-              },
-              {
-                  "name": "graph",
-                  "children": [{
-                          "name": "BetweennessCentrality",
-                          "size": 3534
-                      },
-                      {
-                          "name": "LinkDistance",
-                          "size": 5731
-                      },
-                      {
-                          "name": "MaxFlowMinCut",
-                          "size": 7840
-                      },
-                      {
-                          "name": "ShortestPaths",
-                          "size": 5914
-                      },
-                      {
-                          "name": "SpanningTree",
-                          "size": 3416
-                      }
-                  ]
-              },
-              {
-                  "name": "optimization",
-                  "children": [{
-                      "name": "AspectRatioBanker",
-                      "size": 7074
-                  }]
-              }
-          ]
-      },
-      {
-          "name": "animate",
-          "children": [{
-                  "name": "Easing",
-                  "size": 17010
-              },
-              {
-                  "name": "FunctionSequence",
-                  "size": 5842
-              },
-              {
-                  "name": "interpolate",
-                  "children": [{
-                          "name": "ArrayInterpolator",
-                          "size": 1983
-                      },
-                      {
-                          "name": "ColorInterpolator",
-                          "size": 2047
-                      },
-                      {
-                          "name": "DateInterpolator",
-                          "size": 1375
-                      },
-                      {
-                          "name": "Interpolator",
-                          "size": 8746
-                      },
-                      {
-                          "name": "MatrixInterpolator",
-                          "size": 2202
-                      },
-                      {
-                          "name": "NumberInterpolator",
-                          "size": 1382
-                      },
-                      {
-                          "name": "ObjectInterpolator",
-                          "size": 1629
-                      },
-                      {
-                          "name": "PointInterpolator",
-                          "size": 1675
-                      },
-                      {
-                          "name": "RectangleInterpolator",
-                          "size": 2042
-                      }
-                  ]
-              },
-              {
-                  "name": "ISchedulable",
-                  "size": 1041
-              },
-              {
-                  "name": "Parallel",
-                  "size": 5176
-              },
-              {
-                  "name": "Pause",
-                  "size": 449
-              },
-              {
-                  "name": "Scheduler",
-                  "size": 5593
-              },
-              {
-                  "name": "Sequence",
-                  "size": 5534
-              },
-              {
-                  "name": "Transition",
-                  "size": 9201
-              },
-              {
-                  "name": "Transitioner",
-                  "size": 19975
-              },
-              {
-                  "name": "TransitionEvent",
-                  "size": 1116
-              },
-              {
-                  "name": "Tween",
-                  "size": 6006
-              }
-          ]
-      },
-      {
-          "name": "data",
-          "children": [{
-                  "name": "converters",
-                  "children": [{
-                          "name": "Converters",
-                          "size": 721
-                      },
-                      {
-                          "name": "DelimitedTextConverter",
-                          "size": 4294
-                      },
-                      {
-                          "name": "GraphMLConverter",
-                          "size": 9800
-                      },
-                      {
-                          "name": "IDataConverter",
-                          "size": 1314
-                      },
-                      {
-                          "name": "JSONConverter",
-                          "size": 2220
-                      }
-                  ]
-              },
-              {
-                  "name": "DataField",
-                  "size": 1759
-              },
-              {
-                  "name": "DataSchema",
-                  "size": 2165
-              },
-              {
-                  "name": "DataSet",
-                  "size": 586
-              },
-              {
-                  "name": "DataSource",
-                  "size": 3331
-              },
-              {
-                  "name": "DataTable",
-                  "size": 772
-              },
-              {
-                  "name": "DataUtil",
-                  "size": 3322
-              }
-          ]
-      },
-      {
-          "name": "display",
-          "children": [{
-                  "name": "DirtySprite",
-                  "size": 8833
-              },
-              {
-                  "name": "LineSprite",
-                  "size": 1732
-              },
-              {
-                  "name": "RectSprite",
-                  "size": 3623
-              },
-              {
-                  "name": "TextSprite",
-                  "size": 10066
-              }
-          ]
-      },
-      {
-          "name": "flex",
-          "children": [{
-              "name": "FlareVis",
-              "size": 4116
-          }]
-      },
-      {
-          "name": "physics",
-          "children": [{
-                  "name": "DragForce",
-                  "size": 1082
-              },
-              {
-                  "name": "GravityForce",
-                  "size": 1336
-              },
-              {
-                  "name": "IForce",
-                  "size": 319
-              },
-              {
-                  "name": "NBodyForce",
-                  "size": 10498
-              },
-              {
-                  "name": "Particle",
-                  "size": 2822
-              },
-              {
-                  "name": "Simulation",
-                  "size": 9983
-              },
-              {
-                  "name": "Spring",
-                  "size": 2213
-              },
-              {
-                  "name": "SpringForce",
-                  "size": 1681
-              }
-          ]
-      },
-      {
-          "name": "query",
-          "children": [{
-                  "name": "AggregateExpression",
-                  "size": 1616
-              },
-              {
-                  "name": "And",
-                  "size": 1027
-              },
-              {
-                  "name": "Arithmetic",
-                  "size": 3891
-              },
-              {
-                  "name": "Average",
-                  "size": 891
-              },
-              {
-                  "name": "BinaryExpression",
-                  "size": 2893
-              },
-              {
-                  "name": "Comparison",
-                  "size": 5103
-              },
-              {
-                  "name": "CompositeExpression",
-                  "size": 3677
-              },
-              {
-                  "name": "Count",
-                  "size": 781
-              },
-              {
-                  "name": "DateUtil",
-                  "size": 4141
-              },
-              {
-                  "name": "Distinct",
-                  "size": 933
-              },
-              {
-                  "name": "Expression",
-                  "size": 5130
-              },
-              {
-                  "name": "ExpressionIterator",
-                  "size": 3617
-              },
-              {
-                  "name": "Fn",
-                  "size": 3240
-              },
-              {
-                  "name": "If",
-                  "size": 2732
-              },
-              {
-                  "name": "IsA",
-                  "size": 2039
-              },
-              {
-                  "name": "Literal",
-                  "size": 1214
-              },
-              {
-                  "name": "Match",
-                  "size": 3748
-              },
-              {
-                  "name": "Maximum",
-                  "size": 843
-              },
-              {
-                  "name": "methods",
-                  "children": [{
-                          "name": "add",
-                          "size": 593
-                      },
-                      {
-                          "name": "and",
-                          "size": 330
-                      },
-                      {
-                          "name": "average",
-                          "size": 287
-                      },
-                      {
-                          "name": "count",
-                          "size": 277
-                      },
-                      {
-                          "name": "distinct",
-                          "size": 292
-                      },
-                      {
-                          "name": "div",
-                          "size": 595
-                      },
-                      {
-                          "name": "eq",
-                          "size": 594
-                      },
-                      {
-                          "name": "fn",
-                          "size": 460
-                      },
-                      {
-                          "name": "gt",
-                          "size": 603
-                      },
-                      {
-                          "name": "gte",
-                          "size": 625
-                      },
-                      {
-                          "name": "iff",
-                          "size": 748
-                      },
-                      {
-                          "name": "isa",
-                          "size": 461
-                      },
-                      {
-                          "name": "lt",
-                          "size": 597
-                      },
-                      {
-                          "name": "lte",
-                          "size": 619
-                      },
-                      {
-                          "name": "max",
-                          "size": 283
-                      },
-                      {
-                          "name": "min",
-                          "size": 283
-                      },
-                      {
-                          "name": "mod",
-                          "size": 591
-                      },
-                      {
-                          "name": "mul",
-                          "size": 603
-                      },
-                      {
-                          "name": "neq",
-                          "size": 599
-                      },
-                      {
-                          "name": "not",
-                          "size": 386
-                      },
-                      {
-                          "name": "or",
-                          "size": 323
-                      },
-                      {
-                          "name": "orderby",
-                          "size": 307
-                      },
-                      {
-                          "name": "range",
-                          "size": 772
-                      },
-                      {
-                          "name": "select",
-                          "size": 296
-                      },
-                      {
-                          "name": "stddev",
-                          "size": 363
-                      },
-                      {
-                          "name": "sub",
-                          "size": 600
-                      },
-                      {
-                          "name": "sum",
-                          "size": 280
-                      },
-                      {
-                          "name": "update",
-                          "size": 307
-                      },
-                      {
-                          "name": "variance",
-                          "size": 335
-                      },
-                      {
-                          "name": "where",
-                          "size": 299
-                      },
-                      {
-                          "name": "xor",
-                          "size": 354
-                      },
-                      {
-                          "name": "_",
-                          "size": 264
-                      }
-                  ]
-              },
-              {
-                  "name": "Minimum",
-                  "size": 843
-              },
-              {
-                  "name": "Not",
-                  "size": 1554
-              },
-              {
-                  "name": "Or",
-                  "size": 970
-              },
-              {
-                  "name": "Query",
-                  "size": 13896
-              },
-              {
-                  "name": "Range",
-                  "size": 1594
-              },
-              {
-                  "name": "StringUtil",
-                  "size": 4130
-              },
-              {
-                  "name": "Sum",
-                  "size": 791
-              },
-              {
-                  "name": "Variable",
-                  "size": 1124
-              },
-              {
-                  "name": "Variance",
-                  "size": 1876
-              },
-              {
-                  "name": "Xor",
-                  "size": 1101
-              }
-          ]
-      },
-      {
-          "name": "scale",
-          "children": [{
-                  "name": "IScaleMap",
-                  "size": 2105
-              },
-              {
-                  "name": "LinearScale",
-                  "size": 1316
-              },
-              {
-                  "name": "LogScale",
-                  "size": 3151
-              },
-              {
-                  "name": "OrdinalScale",
-                  "size": 3770
-              },
-              {
-                  "name": "QuantileScale",
-                  "size": 2435
-              },
-              {
-                  "name": "QuantitativeScale",
-                  "size": 4839
-              },
-              {
-                  "name": "RootScale",
-                  "size": 1756
-              },
-              {
-                  "name": "Scale",
-                  "size": 4268
-              },
-              {
-                  "name": "ScaleType",
-                  "size": 1821
-              },
-              {
-                  "name": "TimeScale",
-                  "size": 5833
-              }
-          ]
-      },
-      {
-          "name": "util",
-          "children": [{
-                  "name": "Arrays",
-                  "size": 8258
-              },
-              {
-                  "name": "Colors",
-                  "size": 10001
-              },
-              {
-                  "name": "Dates",
-                  "size": 8217
-              },
-              {
-                  "name": "Displays",
-                  "size": 12555
-              },
-              {
-                  "name": "Filter",
-                  "size": 2324
-              },
-              {
-                  "name": "Geometry",
-                  "size": 10993
-              },
-              {
-                  "name": "heap",
-                  "children": [{
-                          "name": "FibonacciHeap",
-                          "size": 9354
-                      },
-                      {
-                          "name": "HeapNode",
-                          "size": 1233
-                      }
-                  ]
-              },
-              {
-                  "name": "IEvaluable",
-                  "size": 335
-              },
-              {
-                  "name": "IPredicate",
-                  "size": 383
-              },
-              {
-                  "name": "IValueProxy",
-                  "size": 874
-              },
-              {
-                  "name": "math",
-                  "children": [{
-                          "name": "DenseMatrix",
-                          "size": 3165
-                      },
-                      {
-                          "name": "IMatrix",
-                          "size": 2815
-                      },
-                      {
-                          "name": "SparseMatrix",
-                          "size": 3366
-                      }
-                  ]
-              },
-              {
-                  "name": "Maths",
-                  "size": 17705
-              },
-              {
-                  "name": "Orientation",
-                  "size": 1486
-              },
-              {
-                  "name": "palette",
-                  "children": [{
-                          "name": "ColorPalette",
-                          "size": 6367
-                      },
-                      {
-                          "name": "Palette",
-                          "size": 1229
-                      },
-                      {
-                          "name": "ShapePalette",
-                          "size": 2059
-                      },
-                      {
-                          "name": "SizePalette",
-                          "size": 2291
-                      }
-                  ]
-              },
-              {
-                  "name": "Property",
-                  "size": 5559
-              },
-              {
-                  "name": "Shapes",
-                  "size": 19118
-              },
-              {
-                  "name": "Sort",
-                  "size": 6887
-              },
-              {
-                  "name": "Stats",
-                  "size": 6557
-              },
-              {
-                  "name": "Strings",
-                  "size": 22026
-              }
-          ]
-      },
-      {
-          "name": "vis",
-          "children": [{
-                  "name": "axis",
-                  "children": [{
-                          "name": "Axes",
-                          "size": 1302
-                      },
-                      {
-                          "name": "Axis",
-                          "size": 24593
-                      },
-                      {
-                          "name": "AxisGridLine",
-                          "size": 652
-                      },
-                      {
-                          "name": "AxisLabel",
-                          "size": 636
-                      },
-                      {
-                          "name": "CartesianAxes",
-                          "size": 6703
-                      }
-                  ]
-              },
-              {
-                  "name": "controls",
-                  "children": [{
-                          "name": "AnchorControl",
-                          "size": 2138
-                      },
-                      {
-                          "name": "ClickControl",
-                          "size": 3824
-                      },
-                      {
-                          "name": "Control",
-                          "size": 1353
-                      },
-                      {
-                          "name": "ControlList",
-                          "size": 4665
-                      },
-                      {
-                          "name": "DragControl",
-                          "size": 2649
-                      },
-                      {
-                          "name": "ExpandControl",
-                          "size": 2832
-                      },
-                      {
-                          "name": "HoverControl",
-                          "size": 4896
-                      },
-                      {
-                          "name": "IControl",
-                          "size": 763
-                      },
-                      {
-                          "name": "PanZoomControl",
-                          "size": 5222
-                      },
-                      {
-                          "name": "SelectionControl",
-                          "size": 7862
-                      },
-                      {
-                          "name": "TooltipControl",
-                          "size": 8435
-                      }
-                  ]
-              },
-              {
-                  "name": "data",
-                  "children": [{
-                          "name": "Data",
-                          "size": 20544
-                      },
-                      {
-                          "name": "DataList",
-                          "size": 19788
-                      },
-                      {
-                          "name": "DataSprite",
-                          "size": 10349
-                      },
-                      {
-                          "name": "EdgeSprite",
-                          "size": 3301
-                      },
-                      {
-                          "name": "NodeSprite",
-                          "size": 19382
-                      },
-                      {
-                          "name": "render",
-                          "children": [{
-                                  "name": "ArrowType",
-                                  "size": 698
-                              },
-                              {
-                                  "name": "EdgeRenderer",
-                                  "size": 5569
-                              },
-                              {
-                                  "name": "IRenderer",
-                                  "size": 353
-                              },
-                              {
-                                  "name": "ShapeRenderer",
-                                  "size": 2247
-                              }
-                          ]
-                      },
-                      {
-                          "name": "ScaleBinding",
-                          "size": 11275
-                      },
-                      {
-                          "name": "Tree",
-                          "size": 7147
-                      },
-                      {
-                          "name": "TreeBuilder",
-                          "size": 9930
-                      }
-                  ]
-              },
-              {
-                  "name": "events",
-                  "children": [{
-                          "name": "DataEvent",
-                          "size": 2313
-                      },
-                      {
-                          "name": "SelectionEvent",
-                          "size": 1880
-                      },
-                      {
-                          "name": "TooltipEvent",
-                          "size": 1701
-                      },
-                      {
-                          "name": "VisualizationEvent",
-                          "size": 1117
-                      }
-                  ]
-              },
-              {
-                  "name": "legend",
-                  "children": [{
-                          "name": "Legend",
-                          "size": 20859
-                      },
-                      {
-                          "name": "LegendItem",
-                          "size": 4614
-                      },
-                      {
-                          "name": "LegendRange",
-                          "size": 10530
-                      }
-                  ]
-              },
-              {
-                  "name": "operator",
-                  "children": [{
-                          "name": "distortion",
-                          "children": [{
-                                  "name": "BifocalDistortion",
-                                  "size": 4461
-                              },
-                              {
-                                  "name": "Distortion",
-                                  "size": 6314
-                              },
-                              {
-                                  "name": "FisheyeDistortion",
-                                  "size": 3444
-                              }
-                          ]
-                      },
-                      {
-                          "name": "encoder",
-                          "children": [{
-                                  "name": "ColorEncoder",
-                                  "size": 3179
-                              },
-                              {
-                                  "name": "Encoder",
-                                  "size": 4060
-                              },
-                              {
-                                  "name": "PropertyEncoder",
-                                  "size": 4138
-                              },
-                              {
-                                  "name": "ShapeEncoder",
-                                  "size": 1690
-                              },
-                              {
-                                  "name": "SizeEncoder",
-                                  "size": 1830
-                              }
-                          ]
-                      },
-                      {
-                          "name": "filter",
-                          "children": [{
-                                  "name": "FisheyeTreeFilter",
-                                  "size": 5219
-                              },
-                              {
-                                  "name": "GraphDistanceFilter",
-                                  "size": 3165
-                              },
-                              {
-                                  "name": "VisibilityFilter",
-                                  "size": 3509
-                              }
-                          ]
-                      },
-                      {
-                          "name": "IOperator",
-                          "size": 1286
-                      },
-                      {
-                          "name": "label",
-                          "children": [{
-                                  "name": "Labeler",
-                                  "size": 9956
-                              },
-                              {
-                                  "name": "RadialLabeler",
-                                  "size": 3899
-                              },
-                              {
-                                  "name": "StackedAreaLabeler",
-                                  "size": 3202
-                              }
-                          ]
-                      },
-                      {
-                          "name": "layout",
-                          "children": [{
-                                  "name": "AxisLayout",
-                                  "size": 6725
-                              },
-                              {
-                                  "name": "BundledEdgeRouter",
-                                  "size": 3727
-                              },
-                              {
-                                  "name": "CircleLayout",
-                                  "size": 9317
-                              },
-                              {
-                                  "name": "CirclePackingLayout",
-                                  "size": 12003
-                              },
-                              {
-                                  "name": "DendrogramLayout",
-                                  "size": 4853
-                              },
-                              {
-                                  "name": "ForceDirectedLayout",
-                                  "size": 8411
-                              },
-                              {
-                                  "name": "IcicleTreeLayout",
-                                  "size": 4864
-                              },
-                              {
-                                  "name": "IndentedTreeLayout",
-                                  "size": 3174
-                              },
-                              {
-                                  "name": "Layout",
-                                  "size": 7881
-                              },
-                              {
-                                  "name": "NodeLinkTreeLayout",
-                                  "size": 12870
-                              },
-                              {
-                                  "name": "PieLayout",
-                                  "size": 2728
-                              },
-                              {
-                                  "name": "RadialTreeLayout",
-                                  "size": 12348
-                              },
-                              {
-                                  "name": "RandomLayout",
-                                  "size": 870
-                              },
-                              {
-                                  "name": "StackedAreaLayout",
-                                  "size": 9121
-                              },
-                              {
-                                  "name": "TreeMapLayout",
-                                  "size": 9191
-                              }
-                          ]
-                      },
-                      {
-                          "name": "Operator",
-                          "size": 2490
-                      },
-                      {
-                          "name": "OperatorList",
-                          "size": 5248
-                      },
-                      {
-                          "name": "OperatorSequence",
-                          "size": 4190
-                      },
-                      {
-                          "name": "OperatorSwitch",
-                          "size": 2581
-                      },
-                      {
-                          "name": "SortOperator",
-                          "size": 2023
-                      }
-                  ]
-              },
-              {
-                  "name": "Visualization",
-                  "size": 16540
-              }
-          ]
-      }
-  ]
+    "Name": "香港中央结算(代理人)有限公司",
+    "KeyNo": "h1a3ef7ad8ec2e56ba43e250225d1d28",
+    "Category": "1",
+    "StockType": "",
+    "Count": "0",
+    "SubConAmt": "340910.388万元",
+    "FundedRatio": "29.64%",
+    "children": null,
+    "IsAbsoluteController": "True",
+    "Grade": "2",
+    "OperName": null,
+    "InParentActualRadio": "0.2964",
+    "ParentKeyNo": "56777fa57d850f62a5225be7d974a17e"
+  }, {
+    "Name": "中国证券金融股份有限公司",
+    "KeyNo": "8434f4e2874e6fd1431416ae131bafd8",
+    "Category": "1",
+    "StockType": "",
+    "Count": "3",
+    "SubConAmt": "56358.33万元",
+    "FundedRatio": "4.90%",
+    "children": [{
+      "Name": "深圳证券交易所",
+      "KeyNo": "c524e03c99bdfbb837f008df93617e5b",
+      "Category": "1",
+      "StockType": "法人股东",
+      "Count": "0",
+      "SubConAmt": "600000万元",
+      "FundedRatio": "36.363636363636363636363636360%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.0178181818181818",
+      "ParentKeyNo": "8434f4e2874e6fd1431416ae131bafd8"
+    }, {
+      "Name": "中国证券登记结算有限责任公司",
+      "KeyNo": "bd36856cd988e84d9771cf70399ca35c",
+      "Category": "1",
+      "StockType": "法人股东",
+      "Count": "0",
+      "SubConAmt": "450000万元",
+      "FundedRatio": "27.272727272727272727272727270%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.0133636363636364",
+      "ParentKeyNo": "8434f4e2874e6fd1431416ae131bafd8"
+    }, {
+      "Name": "上海证券交易所",
+      "KeyNo": "7af84992b6e3a0aa16518921e6c4b6bc",
+      "Category": "1",
+      "StockType": "法人股东",
+      "Count": "0",
+      "SubConAmt": "600000万元",
+      "FundedRatio": "36.363636363636363636363636360%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.0178181818181818",
+      "ParentKeyNo": "8434f4e2874e6fd1431416ae131bafd8"
+    }],
+    "IsAbsoluteController": "False",
+    "Grade": "2",
+    "OperName": "聂庆平",
+    "InParentActualRadio": "0.049",
+    "ParentKeyNo": "56777fa57d850f62a5225be7d974a17e"
+  }, {
+    "Name": "光明食品(集团)有限公司",
+    "KeyNo": "8fab7238c1d79bcd46d604b1de2143c9",
+    "Category": "1",
+    "StockType": "",
+    "Count": "4",
+    "SubConAmt": "40255.95万元",
+    "FundedRatio": "3.50%",
+    "children": [{
+      "Name": "上海国盛（集团）有限公司",
+      "KeyNo": "3bc8fc3fd9541efac203bb04d341b4c5",
+      "Category": "1",
+      "StockType": "企业法人",
+      "Count": "0",
+      "SubConAmt": "213600万元",
+      "FundedRatio": "44.48%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.015568",
+      "ParentKeyNo": "8fab7238c1d79bcd46d604b1de2143c9"
+    }, {
+      "Name": "上海城投（集团）有限公司",
+      "KeyNo": "45b2ded969f93f68ac3534b47356146d",
+      "Category": "1",
+      "StockType": "企业法人",
+      "Count": "0",
+      "SubConAmt": "196200万元",
+      "FundedRatio": "40.86%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.014301",
+      "ParentKeyNo": "8fab7238c1d79bcd46d604b1de2143c9"
+    }, {
+      "Name": "上海久事（集团）有限公司",
+      "KeyNo": "c4233ed22c1d7fcadbf29525aa2e5cfc",
+      "Category": "1",
+      "StockType": "企业法人",
+      "Count": "0",
+      "SubConAmt": "37400万元",
+      "FundedRatio": "7.79%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.0027265",
+      "ParentKeyNo": "8fab7238c1d79bcd46d604b1de2143c9"
+    }, {
+      "Name": "上海市国有资产监督管理委员会",
+      "KeyNo": "g632261fc8b2a01578260dbaafa14216",
+      "Category": "1",
+      "StockType": "机关法人",
+      "Count": "0",
+      "SubConAmt": "33000万元",
+      "FundedRatio": "6.87%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.0024045",
+      "ParentKeyNo": "8fab7238c1d79bcd46d604b1de2143c9"
+    }],
+    "IsAbsoluteController": "False",
+    "Grade": "2",
+    "OperName": "是明芳",
+    "InParentActualRadio": "0.035",
+    "ParentKeyNo": "56777fa57d850f62a5225be7d974a17e"
+  }, {
+    "Name": "上海海烟投资管理有限公司",
+    "KeyNo": "e7111c49ceadfc8c21581686451f2ccc",
+    "Category": "1",
+    "StockType": "",
+    "Count": "1",
+    "SubConAmt": "40025.916万元",
+    "FundedRatio": "3.48%",
+    "children": [{
+      "Name": "上海烟草集团有限责任公司",
+      "KeyNo": "bd086cae60c3622e447f0dcba3551517",
+      "Category": "1",
+      "StockType": "企业法人",
+      "Count": "0",
+      "SubConAmt": "900000万元",
+      "FundedRatio": "100%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.0348",
+      "ParentKeyNo": "e7111c49ceadfc8c21581686451f2ccc"
+    }],
+    "IsAbsoluteController": "False",
+    "Grade": "2",
+    "OperName": "陈宣民",
+    "InParentActualRadio": "0.0348",
+    "ParentKeyNo": "56777fa57d850f62a5225be7d974a17e"
+  }, {
+    "Name": "申能(集团)有限公司",
+    "KeyNo": "da8f9a9e6208a9e8e4da13ed5ce994cf",
+    "Category": "1",
+    "StockType": "",
+    "Count": "1",
+    "SubConAmt": "32204.76万元",
+    "FundedRatio": "2.80%",
+    "children": [{
+      "Name": "上海市国有资产监督管理委员会",
+      "KeyNo": "g632261fc8b2a01578260dbaafa14216",
+      "Category": "1",
+      "StockType": "机关法人",
+      "Count": "0",
+      "SubConAmt": "1000000万元",
+      "FundedRatio": "100%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.028",
+      "ParentKeyNo": "da8f9a9e6208a9e8e4da13ed5ce994cf"
+    }],
+    "IsAbsoluteController": "False",
+    "Grade": "2",
+    "OperName": "黄迪南",
+    "InParentActualRadio": "0.028",
+    "ParentKeyNo": "56777fa57d850f62a5225be7d974a17e"
+  }, {
+    "Name": "上海电气(集团)总公司",
+    "KeyNo": "fab887abdd765949525cba4761e2d07e",
+    "Category": "1",
+    "StockType": "",
+    "Count": "1",
+    "SubConAmt": "26568.927万元",
+    "FundedRatio": "2.31%",
+    "children": [{
+      "Name": "市国资委",
+      "KeyNo": "gddc13fa1aaa51730757f6cafc5755df",
+      "Category": "1",
+      "StockType": "机关法人",
+      "Count": "0",
+      "SubConAmt": "835036.6万元",
+      "FundedRatio": "100%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.0231",
+      "ParentKeyNo": "fab887abdd765949525cba4761e2d07e"
+    }],
+    "IsAbsoluteController": "False",
+    "Grade": "2",
+    "OperName": "郑建华",
+    "InParentActualRadio": "0.0231",
+    "ParentKeyNo": "56777fa57d850f62a5225be7d974a17e"
+  }, {
+    "Name": "上海久事(集团)有限公司",
+    "KeyNo": "c4233ed22c1d7fcadbf29525aa2e5cfc",
+    "Category": "1",
+    "StockType": "",
+    "Count": "1",
+    "SubConAmt": "23578.485万元",
+    "FundedRatio": "2.05%",
+    "children": [{
+      "Name": "上海市国有资产监督管理委员会",
+      "KeyNo": "g632261fc8b2a01578260dbaafa14216",
+      "Category": "1",
+      "StockType": "机关法人",
+      "Count": "0",
+      "SubConAmt": "6000000万元",
+      "FundedRatio": "100%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.0205",
+      "ParentKeyNo": "c4233ed22c1d7fcadbf29525aa2e5cfc"
+    }],
+    "IsAbsoluteController": "False",
+    "Grade": "2",
+    "OperName": "龚德庆",
+    "InParentActualRadio": "0.0205",
+    "ParentKeyNo": "56777fa57d850f62a5225be7d974a17e"
+  }, {
+    "Name": "上海百联集团股份有限公司",
+    "KeyNo": "80daeeaca2ef5a928e1b9a981105db2f",
+    "Category": "1",
+    "StockType": "",
+    "Count": "10",
+    "SubConAmt": "21393.162万元",
+    "FundedRatio": "1.86%",
+    "children": [{
+      "Name": "百联集团有限公司",
+      "KeyNo": "c712312910070a25936811196b63e558",
+      "Category": "1",
+      "StockType": "",
+      "Count": "0",
+      "SubConAmt": "81393.74949754万元",
+      "FundedRatio": "45.62%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.00848532",
+      "ParentKeyNo": "80daeeaca2ef5a928e1b9a981105db2f"
+    }, {
+      "Name": "上海友谊复星(控股)有限公司",
+      "KeyNo": "7d56b470aa19dad08747976120eefd0f",
+      "Category": "1",
+      "StockType": "",
+      "Count": "0",
+      "SubConAmt": "9884.29136818万元",
+      "FundedRatio": "5.54%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.00103044",
+      "ParentKeyNo": "80daeeaca2ef5a928e1b9a981105db2f"
+    }, {
+      "Name": "全国社保基金一零三组合",
+      "KeyNo": "",
+      "Category": "1",
+      "StockType": "自然人股东",
+      "Count": "0",
+      "SubConAmt": "7796.81467129万元",
+      "FundedRatio": "4.37%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.00081282",
+      "ParentKeyNo": "80daeeaca2ef5a928e1b9a981105db2f"
+    }, {
+      "Name": "BILL & MELINDA GATES FOUNDATION TRUST",
+      "KeyNo": "",
+      "Category": "1",
+      "StockType": "自然人股东",
+      "Count": "0",
+      "SubConAmt": "2069.63501572万元",
+      "FundedRatio": "1.16%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.00021576",
+      "ParentKeyNo": "80daeeaca2ef5a928e1b9a981105db2f"
+    }, {
+      "Name": "中央汇金资产管理有限责任公司",
+      "KeyNo": "78c200dd24178853e4a985d918c6bc2e",
+      "Category": "1",
+      "StockType": "",
+      "Count": "0",
+      "SubConAmt": "2051.79333455万元",
+      "FundedRatio": "1.15%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.0002139",
+      "ParentKeyNo": "80daeeaca2ef5a928e1b9a981105db2f"
+    }, {
+      "Name": "中国工商银行股份有限公司-中证上海国企交易型开放式指数证券投资基金",
+      "KeyNo": "02d68fdfc282fa75bcac3e3b30be5b4b",
+      "Category": "1",
+      "StockType": "",
+      "Count": "0",
+      "SubConAmt": "1677.11802998万元",
+      "FundedRatio": "0.94%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.00017484",
+      "ParentKeyNo": "80daeeaca2ef5a928e1b9a981105db2f"
+    }, {
+      "Name": "基本养老保险基金八零一组合",
+      "KeyNo": "",
+      "Category": "1",
+      "StockType": "自然人股东",
+      "Count": "0",
+      "SubConAmt": "874.24237733万元",
+      "FundedRatio": "0.49%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "9.114E-05",
+      "ParentKeyNo": "80daeeaca2ef5a928e1b9a981105db2f"
+    }, {
+      "Name": "NORGES BANK",
+      "KeyNo": "",
+      "Category": "1",
+      "StockType": "",
+      "Count": "0",
+      "SubConAmt": "713.6672468万元",
+      "FundedRatio": "0.40%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "7.44E-05",
+      "ParentKeyNo": "80daeeaca2ef5a928e1b9a981105db2f"
+    }, {
+      "Name": "中国工商银行股份有限公司-嘉实新机遇灵活配置混合型发起式证券投资基金",
+      "KeyNo": "02d68fdfc282fa75bcac3e3b30be5b4b",
+      "Category": "1",
+      "StockType": "",
+      "Count": "0",
+      "SubConAmt": "642.30052212万元",
+      "FundedRatio": "0.36%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "6.696E-05",
+      "ParentKeyNo": "80daeeaca2ef5a928e1b9a981105db2f"
+    }, {
+      "Name": "SCHRODER INTERNATIONAL SELECTION FUND",
+      "KeyNo": "h0951e75069d228068aae29c053d6b70",
+      "Category": "1",
+      "StockType": "",
+      "Count": "0",
+      "SubConAmt": "570.93379744万元",
+      "FundedRatio": "0.32%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "5.952E-05",
+      "ParentKeyNo": "80daeeaca2ef5a928e1b9a981105db2f"
+    }],
+    "IsAbsoluteController": "False",
+    "Grade": "2",
+    "OperName": "叶永明",
+    "InParentActualRadio": "0.0186",
+    "ParentKeyNo": "56777fa57d850f62a5225be7d974a17e"
+  }, {
+    "Name": "齐鲁证券资管-工商银行-齐鲁碧辰10号集合资产管理计划",
+    "KeyNo": "",
+    "Category": "1",
+    "StockType": "自然人股东",
+    "Count": "0",
+    "SubConAmt": "19322.856万元",
+    "FundedRatio": "1.68%",
+    "children": null,
+    "IsAbsoluteController": "False",
+    "Grade": "2",
+    "OperName": null,
+    "InParentActualRadio": "0.0168",
+    "ParentKeyNo": "56777fa57d850f62a5225be7d974a17e"
+  }, {
+    "Name": "云南国际信托有限公司-聚利15号单一资金信托",
+    "KeyNo": "f8b182f35d2f4c69678ec19164d2384b",
+    "Category": "1",
+    "StockType": "",
+    "Count": "6",
+    "SubConAmt": "18747.771万元",
+    "FundedRatio": "1.63%",
+    "children": [{
+      "Name": "云南省财政厅",
+      "KeyNo": "g9abe03874541974decb0f849c15ab5e",
+      "Category": "1",
+      "StockType": "其他投资者",
+      "Count": "0",
+      "SubConAmt": "30000万元",
+      "FundedRatio": "25.00%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.004075",
+      "ParentKeyNo": "f8b182f35d2f4c69678ec19164d2384b"
+    }, {
+      "Name": "涌金实业（集团）有限公司",
+      "KeyNo": "e4430cf059a067dc60bdd787c5a27ec2",
+      "Category": "1",
+      "StockType": "其他投资者",
+      "Count": "0",
+      "SubConAmt": "29400万元",
+      "FundedRatio": "24.50%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.0039935",
+      "ParentKeyNo": "f8b182f35d2f4c69678ec19164d2384b"
+    }, {
+      "Name": "上海纳米创业投资有限公司",
+      "KeyNo": "706c26daf2553e7fcd404dc1084c53ec",
+      "Category": "1",
+      "StockType": "其他投资者",
+      "Count": "0",
+      "SubConAmt": "27600万元",
+      "FundedRatio": "23.00%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.003749",
+      "ParentKeyNo": "f8b182f35d2f4c69678ec19164d2384b"
+    }, {
+      "Name": "北京知金科技投资有限公司",
+      "KeyNo": "a3a9c197b56f66fed80313844cc3686f",
+      "Category": "1",
+      "StockType": "其他投资者",
+      "Count": "0",
+      "SubConAmt": "21000万元",
+      "FundedRatio": "17.50%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.0028525",
+      "ParentKeyNo": "f8b182f35d2f4c69678ec19164d2384b"
+    }, {
+      "Name": "深圳中民电商控股有限公司",
+      "KeyNo": "c8733bdd155c2c29b2c263990a5d9a62",
+      "Category": "1",
+      "StockType": "其他投资者",
+      "Count": "0",
+      "SubConAmt": "9000万元",
+      "FundedRatio": "7.50%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.0012225",
+      "ParentKeyNo": "f8b182f35d2f4c69678ec19164d2384b"
+    }, {
+      "Name": "云南合和（集团）股份有限公司",
+      "KeyNo": "f96ee1b50590d06c82d408a55ebf1a85",
+      "Category": "1",
+      "StockType": "企业法人",
+      "Count": "0",
+      "SubConAmt": "3000万元",
+      "FundedRatio": "2.50%",
+      "children": null,
+      "IsAbsoluteController": "False",
+      "Grade": "3",
+      "OperName": null,
+      "InParentActualRadio": "0.0004075",
+      "ParentKeyNo": "f8b182f35d2f4c69678ec19164d2384b"
+    }],
+    "IsAbsoluteController": "False",
+    "Grade": "2",
+    "OperName": "刘刚",
+    "InParentActualRadio": "0.0163",
+    "ParentKeyNo": "56777fa57d850f62a5225be7d974a17e"
+  }],
+  "IsAbsoluteController": "True",
+  "Grade": "1",
+  "ActualControllerLoopPath": [{
+    "Name": "香港中央结算(代理人)有限公司",
+    "StockType": "",
+    "KeyNo": "h1a3ef7ad8ec2e56ba43e250225d1d28",
+    "SubConAmt": "340910.388万元",
+    "FundedRatio": "29.64%"
+  }],
+  "OperName": "周杰",
+  "InParentActualRadio": "0"
 }

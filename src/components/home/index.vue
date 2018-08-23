@@ -25,9 +25,6 @@
       </div>
     </div>
   </div>
-  <!-- <div style="width:1000px;margin:0 auto;height:40%;">
-    <filterSection/>
-  </div> -->
 </div>
 </template>
 
@@ -37,25 +34,14 @@ export default {
   components:{ filterSection },
   data(){
     return {
-      currentLabel:'companyCorpName',
       keyWord:''
     }
   },
   methods:{
-    loginClick(){
-
-    },
-    registerClick(){
-
-    },
-    switchLabel(label){
-      this.currentLabel = label
-    },
     doSearch(){
       this.$router.push({
         path:'/search',
         query:{
-          filterType:this.currentLabel,
           keyWord:this.keyWord
         }
       })

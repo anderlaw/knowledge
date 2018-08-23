@@ -168,7 +168,7 @@
                 <td colspan="2">
                   <img src="../../assets/relation.png" alt="">
                   <br>
-                  <el-button size="mini" type="primary" style="margin:14px 0;">
+                  <el-button @click="openGuquan = true" size="mini" type="primary" style="margin:14px 0;">
                     <span class="iconfont icon-chakan"></span>
                       查看详情
                   </el-button>
@@ -305,6 +305,18 @@
         </template>
       </PeopleTable> -->
     </div>
+    <!-- 股权对话框 -->
+    <el-dialog
+      title="股权图谱"
+      :visible.sync="openGuquan"
+      @open="renderGuquan"
+      width="40%">
+      <div id="guquan" style="text-align:center;">
+      </div>
+      <span slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="openGuquan = false">关闭</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -314,6 +326,7 @@ import Shouyiren from '@/components/merge-table'
 import PeopleTable from '@/components/table-renyuan'
 
 import { getInfoGongShang , getInfoGuQuan} from '@/http/info'
+import renderGuquan from '@/utils/guquan'
 export default {
   components:{ Table, Shouyiren, PeopleTable },
   data(){
@@ -325,7 +338,9 @@ export default {
         companyInfo:{},
         guquan:[],
         shareholder:[]
-      }
+      },
+      //股权对话框
+      openGuquan:false,
     }
   },
   methods:{
@@ -357,6 +372,12 @@ export default {
         top:top,
         behavior:'smooth'
       })
+    },
+    renderGuquan(){
+      this.$nextTick(function(){
+        renderGuquan(this.mainData_guquan,'#guquan')
+      })
+
     }
   },
   mounted(){
@@ -364,6 +385,8 @@ export default {
       if(res.data.flag == true){
         //成功
         this.mainData = res.data.data;
+        this.mainData_guquan = JSON.parse(res.data.data.guquan[0].children).Result;
+        console.log(JSON.stringify(this.mainData_guquan))
       }
     });
 

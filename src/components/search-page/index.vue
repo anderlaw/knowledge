@@ -9,7 +9,7 @@
         <div style="float:right;">
           <input type="text"
             v-model="keyWord"
-          style="padding:8px 10px;width:300px;border-radius:2px 0px 0px 2px;border: 0px;outline:none" @keyup.enter="handleSearch" placeholder="请输入公司名称、人名、品牌名称等关键词"><div class="search-btn" @click="handleSearch"> 搜索 </div>
+          style="padding:8px 10px;width:300px;border-radius:2px 0px 0px 2px;border: 0px;outline:none" @keyup.enter="getCompany" placeholder="请输入公司名称、人名、品牌名称等关键词"><div class="search-btn" @click="getCompany"> 搜索 </div>
         </div>
       </div>
     </div>
@@ -72,17 +72,12 @@ export default {
       totalNumber:0,
       currentPage:1,
       currentSize:10,
-      filterType:'companyCorpName'
     }
   },
   methods:{
-    handleSearch(){
-      this.filterType = "companyCorpName";
-      this.getCompany();
-    },
     getCompany(){
       getCompany({
-        [this.filterType]:this.keyWord,
+        companyCorpName:this.keyWord,
         pageNumber:this.currentPage,
         pageSize:this.currentSize
       }).then(res=>{
@@ -104,8 +99,6 @@ export default {
     },
     initFilterType_keyWord(){
       if(this.$route.query){
-        if(sessionStorage.getItem('filterType'))
-        this.filterType = this.$route.query.filterType;
         this.keyWord = this.$route.query.keyWord;
       }
     }

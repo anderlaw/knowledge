@@ -94,3 +94,21 @@
 .tab-box:not(:last-child){
   border-right: none;
 }
+/* 股权图谱 */
+.node rect {
+  cursor: pointer;
+  fill-opacity: 0.5;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+.node text {
+  font: 10px sans-serif;
+  pointer-events: none;
+}
+
+.link {
+  fill: none;
+  stroke: #abcdf3;
+  stroke-width: 1.5px;
+}
