@@ -4,7 +4,7 @@
       <img style="width:100%;vertical-align:middle;" src="../../assets/compony-logo.png" alt="">
     </div>
     <div class="fl" style="width:80%;box-sizing:border-box;padding-left:10px;font-size:14px;">
-      <div class="company-title" @click="jumpToInfo">{{ itemInfo.companyCorpName }}</div>
+      <div class="company-title" @click="jumpToInfo(itemInfo.companyId)">{{ itemInfo.companyCorpName }}</div>
       <div class="clearfix">
         <div class="info_item">
           <span class="key">董事长</span>
@@ -38,9 +38,12 @@
 export default {
   props:['itemInfo'],
   methods:{
-    jumpToInfo(){
+    jumpToInfo(id){
       this.$router.push({
-        path:'/info'
+        path:'/info',
+        query:{
+          id:id
+        }
       })
     },
   }

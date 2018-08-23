@@ -4,50 +4,36 @@
       <slot name="title">
       </slot>
     </div>
-    <el-table
-      :data="mainData"
+    <slot name="content">
+    </slot>
+    <!-- <el-table
+      :data="tableData"
       height="250"
       border
       style="width: 100%">
       <el-table-column
-        prop="Name"
+        prop="shareholderName"
         label="股东名称"
         width="180">
       </el-table-column>
       <el-table-column
-        prop="StockType"
+        prop="shareholderType"
         label="股份类型">
-        <template slot-scope="scope">
-          <span v-if="scope.row.IsAbsoluteController == 'True'">
-            流通H股
-          </span>
-          <span v-else>
-            流通A股
-          </span>
-        </template>
       </el-table-column>
       <el-table-column
-        prop="SubConAmt"
-        label="持股数(股)">
+        prop="shareholderNumber"
+        label="持股数（股）">
       </el-table-column>
       <el-table-column
-        prop="FundedRatio"
+        prop="shareholderProportion"
         label="持股比例">
       </el-table-column>
-      <el-table-column
-        label="增减（股）">
-      </el-table-column>
-      <el-table-column
-        label="变动比例">
-      </el-table-column>
-    </el-table>
-
+    </el-table> -->
   </div>
 </template>
 
 <script>
 export default {
-  props:['mainData'],
   data(){
     return {
 

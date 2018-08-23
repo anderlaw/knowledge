@@ -14,9 +14,9 @@ Vue.config.productionTip = false
 import service from './http/config'
 service.defaults.baseURL = baseUrl;//设置 接口地址
 import './style.css'
-if(process.env.NODE_ENV==='development'){
-  require('./mock');
-}
+// if(process.env.NODE_ENV==='development'){
+//   require('./mock');
+// }
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

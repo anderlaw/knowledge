@@ -8,6 +8,7 @@ import HomePage from '@/components/home'
 import SearchPage from '@/components/search-page'
 import InfoPage from '@/components/info-page'
 import scopePage from '@/components/scope'
+import Guquan from '@/components/guquan'
 Vue.use(Router)
 
 export default new Router({
@@ -31,6 +32,11 @@ export default new Router({
       path: '/scope',
       name: 'scope',
       component: scopePage
-    }
+    },
+    {
+      path: '/guquan',
+      name: 'guquan',
+      component: Guquan
+    },
   ]
 })

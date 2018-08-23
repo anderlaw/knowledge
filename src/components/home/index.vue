@@ -7,49 +7,27 @@
         <img src="../../assets/logo.png" alt="">
         <span style="color:#fff;vertical-align:2px;">企业知识图谱</span>
       </router-link>
-      <div class="login-register">
-        <span @click="loginClick" class="login">登录</span>
-        /
-        <span @click="registerClick" class="register">注册</span>
-      </div>
     </div>
-    <div class="search-wrapper" style="width:800px;margin:0 auto;text-align:center;">
+    <div class="search-wrapper" style="width:800px;margin:110px auto 0;text-align:center;">
       <h1 style="color:#fff;letter-spacing:4px;">企业知识图谱</h1>
-      <div class="labels">
-        <span :class="{ label__item:true,active:currentLabel === '' }" @click="switchLabel('')">全部</span>
-        <span :class="{ label__item:true,active:currentLabel === '企业名' }" @click="switchLabel('企业名')">企业名</span>
-        <span :class="{ label__item:true,active:currentLabel === '法人/股东' }" @click="switchLabel('法人/股东')">法人/股东</span>
-        <span :class="{ label__item:true,active:currentLabel === '高管' }" @click="switchLabel('高管')">高管</span>
-        <span :class="{ label__item:true,active:currentLabel === '品牌/产品' }" @click="switchLabel('品牌/产品')">品牌/产品</span>
-        <span :class="{ label__item:true,active:currentLabel === '地址/电话' }" @click="switchLabel('地址/电话')">地址/电话</span>
-        <span :class="{ label__item:true,active:currentLabel === '经营范围' }" @click="switchLabel('经营范围')">经营范围</span>
-      </div>
+      <!-- <div class="labels">
+        <span :class="{ label__item:true,active:currentLabel === 'companyCorpName' }" @click="switchLabel('companyCorpName')">企业名</span>
+        <span :class="{ label__item:true,active:currentLabel === 'companyName' }" @click="switchLabel('companyName')">法人/股东</span>
+        <span :class="{ label__item:true,active:currentLabel === 'companyPhones' }" @click="switchLabel('companyPhones')">电话</span>
+        <span :class="{ label__item:true,active:currentLabel === 'companyAddress' }" @click="switchLabel('companyAddress')">地址</span>
+        <span :class="{ label__item:true,active:currentLabel === 'companyScope' }" @click="switchLabel('companyScope')">经营范围</span>
+      </div> -->
       <div class="search-box" style="margin-top:30px;">
         <div style="display:inline-block;position:relative;">
-          <input type="text" v-model="keyWord" style="padding:12px 22px;width:500px;border-radius:4px;border: 0px;outline:none" placeholder="请输入公司名称、人名、品牌名称等关键词">
+          <input type="text" v-model="keyWord" @keyup.enter="doSearch" style="padding:12px 22px;width:500px;border-radius:4px;border: 0px;outline:none" placeholder="请输入公司名称查询">
           <span class="search-btn" @click="doSearch"> 搜索 </span>
-
-          <!-- 定位热点信息 -->
-          <!-- <div class="hot">
-            <span class="title">
-              热点搜索/
-            </span>
-            <span>NNNN</span>
-            <span>NNNN</span>
-            <span>NNNN</span>
-            <span>NNNN</span>
-            <span>NNNN</span>
-            <span>NNNN</span>
-            <span>NNNN</span>
-            <span>NNNN</span>
-          </div> -->
         </div>
       </div>
     </div>
   </div>
-  <div style="width:1000px;margin:0 auto;height:40%;">
+  <!-- <div style="width:1000px;margin:0 auto;height:40%;">
     <filterSection/>
-  </div>
+  </div> -->
 </div>
 </template>
 
@@ -59,7 +37,7 @@ export default {
   components:{ filterSection },
   data(){
     return {
-      currentLabel:'',
+      currentLabel:'companyCorpName',
       keyWord:''
     }
   },
@@ -94,7 +72,7 @@ export default {
 <style>
 /* top背景设置 */
 .top_section{
-  height: 60%;
+  height: 100%;
   background-image: url('../../assets/head_bg.jpg');
   background-repeat:no-repeat;
   background-size: 100% 100%;

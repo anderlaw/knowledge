@@ -8,7 +8,7 @@
         </router-link>
         <div style="float:right;">
           <input type="text"
-          v-model="keyWord"
+            v-model="keyWord"
           style="padding:8px 10px;width:300px;border-radius:2px 0px 0px 2px;border: 0px;outline:none" @keyup.enter="handleSearch" placeholder="请输入公司名称、人名、品牌名称等关键词"><div class="search-btn" @click="handleSearch"> 搜索 </div>
         </div>
       </div>
@@ -54,7 +54,6 @@
           :total="totalNumber">
         </el-pagination>
       </div>
-
     </div>
   </div>
 </template>
@@ -68,29 +67,30 @@ export default {
   components:{searchBar,searchItem},
   data(){
     return {
-      defaultSearchWords:'',
       keyWord:'',
       companyList:[],
-      totalNumber:30,
+      totalNumber:0,
       currentPage:1,
       currentSize:10,
-      filterType:''
+      filterType:'companyCorpName'
     }
   },
   methods:{
     handleSearch(){
+      this.filterType = "companyCorpName";
       this.getCompany();
     },
     getCompany(){
       getCompany({
-        companyName:this.keyWord,
+        [this.filterType]:this.keyWord,
         pageNumber:this.currentPage,
-        pageSize:this.currentSize,
-        filterType:"公司名称"
+        pageSize:this.currentSize
       }).then(res=>{
+        console.log(res)
         if(res.data.flag){
           this.companyList = res.data.data.companyInfo;
           this.totalNumber = res.data.data.total;
+          console.log(this.companyList,this.totalNumber)
         }
       })
     },
@@ -104,6 +104,7 @@ export default {
     },
     initFilterType_keyWord(){
       if(this.$route.query){
+        if(sessionStorage.getItem('filterType'))
         this.filterType = this.$route.query.filterType;
         this.keyWord = this.$route.query.keyWord;
       }
@@ -114,8 +115,7 @@ export default {
   },
   mounted() {
     this.initFilterType_keyWord();
-    this.getCompany(this.defaultSearchWords);
-
+    this.getCompany();
   },
 }
 </script>

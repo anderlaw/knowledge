@@ -44,7 +44,7 @@
   background-image: url(./assets/chart_bg.jpg);
   background-repeat:no-repeat;
   background-size: 100% 100%;
-  height: calc(100% - 50px);
+  height: 100%;
 }
 /* 检索页面的按钮 */
 .search-btn{
