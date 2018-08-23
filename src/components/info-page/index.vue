@@ -22,37 +22,37 @@
         <div class="fr"  style="width:84%;display:inline-block;height:122px;">
           <div class="clearfix" style="padding-left:10px;line-height:1.5;">
             <!-- 名称 -->
-            <div class="strong" style="font-size:18px;">{{ mainData.companyInfo.companyCorpName }}</div>
+            <div class="strong" style="font-size:18px;">{{ mainData.Name }}</div>
 
             <!-- 基础信息 -->
             <div style="font-size:12px;">
               <div>
                 <span style="color:#a0a0a0;">上市详情:</span>
-                <span style="color:#0084ff;">{{ mainData.companyInfo.companyCorpName }}({{ mainData.companyCode }})</span>
+                <span style="color:#0084ff;">{{ mainData.Name }}({{ mainData.StockNumber }})</span>
               </div>
               <div>
                 <div class="inline-item">
                   <span style="color:#a0a0a0;">电话:</span>
-                  <span style="color:#000;">{{ mainData.companyInfo.companyPhone }}</span>
+                  <span style="color:#000;">{{ mainData.ContactInfo.PhoneNumber }}</span>
                 </div>
                 <div class="inline-item">
                   <span style="color:#a0a0a0;">官网:</span>
-                  <span style="color:#000;">{{ mainData.companyInfo.companyWebsite }}</span>
+                  <span style="color:#000;">{{ mainData.ContactInfo.WebSite[0].Url }}</span>
                 </div>
               </div>
               <div>
                 <div class="inline-item">
                   <span style="color:#a0a0a0;">邮箱:</span>
-                  <span style="color:#000;">{{ mainData.companyInfo.companyEmai }}</span>
+                  <span style="color:#000;">{{ mainData.ContactInfo.Email }}</span>
                 </div>
                 <div class="inline-item">
                   <span style="color:#a0a0a0;">地址:</span>
-                  <span style="color:#000;">{{ mainData.companyInfo.companyAddress }}</span>
+                  <span style="color:#000;">{{ mainData.Address }}</span>
                 </div>
               </div>
               <div>
                 <span style="color:#a0a0a0;">简介:</span>
-                <span class="strong">{{ mainData.companyInfo.companyIntroduction ? mainData.companyInfo.companyIntroduction.substring(0,100)+'...':'' }}</span>
+                <span class="strong">{{ }}</span>
               </div>
             </div>
           </div>
@@ -149,7 +149,7 @@
                 <td colspan="2">
                   <span class="iconfont icon-yonghu" style="font-size:50px;"></span>
                   <span style="font-size:18px;">
-                    {{ mainData.companyInfo.companyName }}
+                    {{ mainData.Name }}
                   </span>
                   <br>
                   <el-button size="mini" type="primary" style="margin:14px 0;">
@@ -176,35 +176,35 @@
               </tr>
               <tr class="bg-section">
                 <td>注册资本:</td>
-                <td>{{ mainData.companyInfo.companycapital }}</td>
+                <td>{{mainData.RegistCapi}}</td>
                 <td>实缴资本:</td>
-                <td>{{ mainData.companyInfo.companySjcapital }}</td>
+                <td>{{  }}</td>
                 <td>经营状态:</td>
-                <td>{{ mainData.companyInfo.companyStatus==1?'存续':'吊销' }}</td>
+                <td>{{ mainData.Status }}</td>
               </tr>
               <tr class="bg-section">
                 <td>成立日期:</td>
-                <td>{{ mainData.companyInfo.companyHzDate }}</td>
+                <td>{{ mainData.StartDate }}</td>
                 <td>统一社会信用码:</td>
-                <td>{{ mainData.companyInfo.companyUniscid }}</td>
+                <td>{{ mainData.CreditCode}}</td>
                 <td>纳税人识别号:</td>
-                <td>{{ mainData.companyInfo.companyTaxpayers }}</td>
+                <td>{{ mainData.CreditCode }}</td>
               </tr>
               <tr class="bg-section">
                 <td>注册号:</td>
-                <td>{{ mainData.companyInfo.companyRegNo }}</td>
+                <td>{{ mainData.No }}</td>
                 <td>组织机构代码:</td>
-                <td>{{ mainData.companyInfo.companyOrganCode }}</td>
+                <td>{{ mainData.OrgNo }}</td>
                 <td>公司类型:</td>
-                <td>{{ mainData.companyInfo.companyCorpType }}</td>
+                <td>{{ mainData.StockType }}</td>
               </tr>
               <tr class="bg-section">
                 <td>所属行业:</td>
-                <td>{{ mainData.companyInfo.companyIndustry }}</td>
+                <td>{{ mainData.Industry.Industry}}</td>
                 <td>核准日期:</td>
-                <td>{{ mainData.companyInfo.companyHzDate }}</td>
+                <td>{{ mainData.CheckDate }}</td>
                 <td>登记机关:</td>
-                <td>{{ mainData.companyInfo.companyOrganizers }}</td>
+                <td>{{ mainData.BelongOrg }}</td>
               </tr>
             </tbody>
           </table>
@@ -217,25 +217,25 @@
         </template>
         <template slot="content">
           <el-table
-            :data="mainData.shareholder"
+            :data="mainData_guquan.Children"
             height="250"
             border
             style="width: 100%">
             <el-table-column
-              prop="shareholderName"
+              prop="Name"
               label="股东名称"
               width="180">
             </el-table-column>
             <el-table-column
-              prop="shareholderType"
+              prop="StockType"
               label="股份类型">
             </el-table-column>
             <el-table-column
-              prop="shareholderNumber"
+              prop="SubConAmt"
               label="持股数（股）">
             </el-table-column>
             <el-table-column
-              prop="shareholderProportion"
+              prop="FundedRatio"
               label="持股比例">
             </el-table-column>
           </el-table>
@@ -248,62 +248,91 @@
         </template>
         <template slot="content">
           <el-table
-            :data="mainData.beneficiaries"
+            :data="mainDate_shouyiren"
             height="250"
             border
             style="width: 100%">
             <el-table-column
-              prop="shareholderName"
+              prop="CompanyName"
               label="公司名称"
               width="180">
             </el-table-column>
             <el-table-column
-              prop="shareholderType"
+              prop="OperName"
               label="受益人">
             </el-table-column>
             <el-table-column
-              prop="shareholderNumber"
-              label="受益所有人类型">
-            </el-table-column>
-            <el-table-column
-              prop="shareholderProportion"
-              label="股权占比">
-            </el-table-column>
-            <el-table-column
-              prop="shareholderProportion"
-              label="任职类型">
-            </el-table-column>
-            <el-table-column
-              prop="shareholderProportion"
+              prop="FindMatched"
               label="受益人说明">
             </el-table-column>
             <el-table-column
-              prop="shareholderProportion"
+              prop="Remark"
               label="条文依据">
             </el-table-column>
           </el-table>
         </template>
       </Table>
-      <!-- <Shouyiren id="syr" :tableData="mainData.beneficiaries">
-      </Shouyiren> -->
-      <!-- 股东信息 -->
-      <!-- <Table id="gd" :mainData="guquanData">
+ 
+      <!-- 对外投资 -->
+      <Table>
         <template slot="title">
-          股东信息
+          对外投资
           <span style="font-size:10px;">
-            （数据来源:上市信息）
           </span>
+        </template>
+        <template slot="content">
+          <el-table
+            :data="mainData.Partners"
+            height="250"
+            border
+            style="width: 100%">
+            <el-table-column
+              prop="StockName"
+              label="被投资企业名称"
+              width="180">
+            </el-table-column>
+            <el-table-column
+              prop="StockType"
+              label="企业类型">
+            </el-table-column>
+            <el-table-column
+              prop="RealCapi"
+              label="注册资本">
+            </el-table-column>
+            <el-table-column
+              prop="CapiDate"
+              label="成立日期">
+            </el-table-column>
+          </el-table>
         </template>
       </Table>
 
-      <PeopleTable :mainData="mainData.Employees">
+      <Table>
         <template slot="title">
           主要人员
           <span style="font-size:10px;">
             {{ mainData.Employees.length }}
           </span>
         </template>
-      </PeopleTable> -->
+         <template slot="content">
+          <el-table
+            :data="mainData.Employees"
+            height="250"
+            border
+            style="width: 100%">
+            <el-table-column
+              prop="Name"
+              label="名称"
+              >
+            </el-table-column>
+             <el-table-column
+              prop="Job"
+              label="职位"
+              >
+            </el-table-column>
+          </el-table>
+        </template>
+      </Table>
     </div>
     <!-- 股权对话框 -->
     <el-dialog
@@ -334,13 +363,16 @@ export default {
       keyWord:'',
       anchorActive:'gd',
       mainData:{
-        beneficiaries:[],
         companyInfo:{},
-        guquan:[],
-        shareholder:[]
+        guquan:[{}],
+        shareholder:[],
+        Industry:{ Industry:'' },
+        ContactInfo:{WebSite:[{}]}
       },
       //股权对话框
       openGuquan:false,
+      mainData_guquan:[],
+      mainDate_shouyiren:[],
     }
   },
   methods:{
@@ -384,9 +416,12 @@ export default {
     getInfoGongShang(this.$route.query.id).then(res=>{
       if(res.data.flag == true){
         //成功
-        this.mainData = res.data.data;
+        this.mainData = JSON.parse(res.data.data.companyInfo.companyGsxx).Result;
         this.mainData_guquan = JSON.parse(res.data.data.guquan[0].children).Result;
-        console.log(JSON.stringify(this.mainData_guquan))
+        this.mainDate_shouyiren=[JSON.parse(res.data.data.beneficiaries[0].beneficiaryR).Result];
+        console.log(this.mainDate_shouyiren);
+
+
       }
     });
 

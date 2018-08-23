@@ -8,24 +8,24 @@
       <div class="clearfix">
         <div class="info_item">
           <span class="key">董事长</span>
-          <span class="value" style="color:#142c63;">{{ itemInfo.companyName }}</span>
+          <span class="value" style="color:#142c63;">: {{ itemInfo.companyGsxx.Result.Name }}</span>
         </div>
         <div class="info_item">
           <span class="key">股本</span>
-          <span class="value">{{ itemInfo.companycapital }}</span>
+          <span class="value">: {{ itemInfo.companyGsxx.Result.RegistCapi }}</span>
         </div>
         <div class="info_item">
           <span class="key">邮箱</span>
-          <span class="value">{{ itemInfo.companyEmail }}</span>
+          <span class="value">: {{ itemInfo.companyGsxx.Result.ContactInfo.Email }}</span>
         </div>
         <div class="info_item">
           <span class="key">电话</span>
-          <span class="value">{{ itemInfo.companyPhones }}</span>
+          <span class="value">: {{ itemInfo.companyGsxx.Result.ContactInfo.PhoneNumber }}</span>
         </div>
       </div>
       <div>
         <span class="key">地址 </span>
-        <span class="value">{{ itemInfo.companyAddress }}</span>
+        <span class="value">: {{ itemInfo.companyGsxx.Result.Address }}</span>
       </div>
       <!-- <div>
         股票简称:海通证券

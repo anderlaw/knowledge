@@ -29,15 +29,8 @@
             <searchItem :itemInfo="item"/>
           </div>
           <div class="fl" style="width:20%;height:100%;text-align:center;">
-            <span v-if="item.companyStatus == 1" class="tag register">
-              仍注册
-            </span>
-            <span v-if="item.companyStatus == 2" class="tag operate">
-              存续
-            </span>
-            <span v-if="item.companyStatus == 3" class="tag operate">
-              吊销
-            </span>
+           {{ item.companyGsxx.Result.Status }}
+           
           </div>
         </div>
       </div>
@@ -75,6 +68,11 @@ export default {
     }
   },
   methods:{
+    dealJSONToObj(data){
+      this.companyList.forEach(item=>{
+        item.companyGsxx = JSON.parse(item.companyGsxx);
+      })
+    },
     getCompany(){
       getCompany({
         companyCorpName:this.keyWord,
@@ -83,7 +81,10 @@ export default {
       }).then(res=>{
         console.log(res)
         if(res.data.flag){
+          //
           this.companyList = res.data.data.companyInfo;
+          this.dealJSONToObj();
+          console.log(this.companyList)
           this.totalNumber = res.data.data.total;
           console.log(this.companyList,this.totalNumber)
         }
