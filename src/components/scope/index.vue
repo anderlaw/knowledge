@@ -1,7 +1,35 @@
 <template>
-  <div class="chart_bg" id="scope">
-
+<div style="height:100%;">
+  <div class="search__bar">
+    <div class="search__bar__layout">
+      <router-link to="/" style="float:left;">
+        <img src="../../assets/logo.png" alt="" style="height:2.4ex;">
+        <span style="color:#fff;vertical-align:3px;">企业知识图谱</span>
+      </router-link>
+      <div style="float:right;">
+        <input type="text"
+        v-model="keyWord"
+        style="padding:8px 10px;width:300px;border-radius:2px 0px 0px 2px;border: 0px;outline:none" @keyup.enter="handleSearch" placeholder="请输入公司名称、人名、品牌名称等关键词"><div class="search-btn" @click="handleSearch"> 搜索 </div>
+      </div>
+    </div>
   </div>
+  <div class="navbar">
+    <span @click="switchType('企业图谱')" :class="{ navbar__item:true,active:currentType=='企业图谱' }">
+      企业图谱
+    </span>
+    <span @click="switchType('投资图谱')" :class="{ navbar__item:true,active:currentType=='投资图谱' }">
+      投资图谱
+    </span>
+    <span @click="switchType('关系图谱')" :class="{ navbar__item:true,active:currentType=='关系图谱' }">
+      关系图谱
+    </span>
+    <span @click="switchType('股权结构图')" :class="{ navbar__item:true,active:currentType=='股权结构图' }">
+      股权结构图
+    </span>
+  </div>
+  <div class="chart_bg" id="scope">
+  </div>
+</div>
 </template>
 
 <script>
@@ -10,6 +38,21 @@ import dataTest from './data.js';
 export default {
   data(){
     return {
+      keyWord:'',
+      currentType:'企业图谱'
+    }
+  },
+  methods:{
+    handleSearch(){
+      this.$router.push({
+        path:'/search',
+        query:{
+          keyWord:this.keyWord
+        }
+      })
+    },
+    switchType(type){
+      this.currentType = type;
     }
   },
   mounted() {
@@ -100,15 +143,24 @@ export default {
 
           //某个节点变
       })
-  },
-  methods:{
-    renderScape(){
-
-    }
   }
 }
 </script>
 
-<style>
-
+<style scoped>
+  .navbar{
+    z-index:10000;
+    font-size: 16px;
+    position:fixed;top:60px;width:100%;
+  }
+  .navbar__item{
+    color:#3d4144;
+    padding:6px 0;
+    cursor: pointer;
+    margin: 0 20px;
+  }
+  .navbar__item.active{
+    border-bottom: 2px solid #4a8bed;
+    color:#4a8bed;
+  }
 </style>
