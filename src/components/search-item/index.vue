@@ -1,31 +1,31 @@
 <template>
-  <div class="clearfix" style="width:100%;box-sizing:border-box;border-right:1px solid #f2f2f2;">
-    <div class="fl" style="width:20%;">
-      <img style="width:100%;vertical-align:middle;" src="../../assets/compony-logo.png" alt="">
+  <div class="clearfix" style="height:100%;width:100%;box-sizing:border-box;border-right:1px solid #f2f2f2;">
+    <div class="fl" style="width:20%;height:100%;">
+      <img :src="loadImg(itemInfo.companyGsxx.Result.Name)" style="height:100%;width:100%;" alt=""/>
     </div>
     <div class="fl" style="width:80%;box-sizing:border-box;padding-left:10px;font-size:14px;">
       <div class="company-title" @click="jumpToInfo(itemInfo.companyId)">{{ itemInfo.companyCorpName }}</div>
       <div class="clearfix">
         <div class="info_item">
           <span class="key">董事长</span>
-          <span class="value" style="color:#142c63;">{{ itemInfo.companyName }}</span>
+          <span class="value" style="color:#142c63;">: {{ itemInfo.companyGsxx.Result.Name }}</span>
         </div>
         <div class="info_item">
           <span class="key">股本</span>
-          <span class="value">{{ itemInfo.companycapital }}</span>
+          <span class="value">: {{ itemInfo.companyGsxx.Result.RegistCapi }}</span>
         </div>
         <div class="info_item">
           <span class="key">邮箱</span>
-          <span class="value">{{ itemInfo.companyEmail }}</span>
+          <span class="value">: {{ itemInfo.companyGsxx.Result.ContactInfo.Email }}</span>
         </div>
         <div class="info_item">
           <span class="key">电话</span>
-          <span class="value">{{ itemInfo.companyPhones }}</span>
+          <span class="value">: {{ itemInfo.companyGsxx.Result.ContactInfo.PhoneNumber }}</span>
         </div>
       </div>
       <div>
         <span class="key">地址 </span>
-        <span class="value">{{ itemInfo.companyAddress }}</span>
+        <span class="value">: {{ itemInfo.companyGsxx.Result.Address }}</span>
       </div>
       <!-- <div>
         股票简称:海通证券
@@ -38,6 +38,18 @@
 export default {
   props:['itemInfo'],
   methods:{
+  loadImg(name){
+    let img = null;
+    try{
+      img = require('../../assets/'+name+'.jpg');
+    }catch(e){
+      img = require('../../assets/no_image.jpg');
+    }finally{
+
+    }
+    
+    return img;
+  },
     jumpToInfo(id){
       this.$router.push({
         path:'/info',
