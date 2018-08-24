@@ -140,7 +140,7 @@
               <tr>
                 <th colspan="2">法定代表人信息</th>
                 <th colspan="2" >企业图谱</th>
-                <th colspan="2">关联图谱</th>
+                <th colspan="2">股权结构图</th>
               </tr>
             </thead>
             <tbody style="font-size:14px;">
@@ -386,8 +386,8 @@ export default {
         //成功
         this.mainData = res.data.data;
         this.mainData_guquan = JSON.parse(res.data.data.guquan[0].children).Result;
-        sessionStorage.setItem('mainData_guquan',JSON.stringify(JSON.parse(res.data.data.guquan[0].children).Result))
-        //console.log(JSON.stringify(this.mainData_guquan))
+        //记录投资图谱
+        sessionStorage.setItem('mainData_touzi',JSON.stringify(JSON.parse(res.data.data.touzitupu[0].children).Result))
       }
     });
 
