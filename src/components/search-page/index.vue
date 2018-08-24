@@ -25,7 +25,7 @@
       </div>
       <div class="table__content clearfix">
         <div class="table__item" :key="index" v-for="(item,index) in companyList">
-          <div class="fl" style="width:80%;">
+          <div class="fl" style="width:80%;height:100%;">
             <searchItem :itemInfo="item"/>
           </div>
           <div class="fl" style="width:20%;height:100%;text-align:center;">
@@ -68,6 +68,7 @@ export default {
     }
   },
   methods:{
+   
     dealJSONToObj(data){
       this.companyList.forEach(item=>{
         item.companyGsxx = JSON.parse(item.companyGsxx);

@@ -1,7 +1,7 @@
 <template>
-  <div class="clearfix" style="width:100%;box-sizing:border-box;border-right:1px solid #f2f2f2;">
-    <div class="fl" style="width:20%;">
-      <img style="width:100%;vertical-align:middle;" src="../../assets/compony-logo.png" alt="">
+  <div class="clearfix" style="height:100%;width:100%;box-sizing:border-box;border-right:1px solid #f2f2f2;">
+    <div class="fl" style="width:20%;height:100%;">
+      <img :src="loadImg(itemInfo.companyGsxx.Result.Name)" style="height:100%;width:100%;" alt=""/>
     </div>
     <div class="fl" style="width:80%;box-sizing:border-box;padding-left:10px;font-size:14px;">
       <div class="company-title" @click="jumpToInfo(itemInfo.companyId)">{{ itemInfo.companyCorpName }}</div>
@@ -38,6 +38,18 @@
 export default {
   props:['itemInfo'],
   methods:{
+  loadImg(name){
+    let img = null;
+    try{
+      img = require('../../assets/'+name+'.jpg');
+    }catch(e){
+      img = require('../../assets/no_image.jpg');
+    }finally{
+
+    }
+    
+    return img;
+  },
     jumpToInfo(id){
       this.$router.push({
         path:'/info',

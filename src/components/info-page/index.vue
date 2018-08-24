@@ -17,7 +17,7 @@
     <div class="wrap--content">
       <div class="clearfix">
         <div class="fl" style="width:16%;display:inline-block;">
-          <img src="../../assets/compony-logo.png" width="100%" alt="">
+          <img :src="loadImg(mainData.Name)" width="100%" alt=""/>
         </div>
         <div class="fr"  style="width:84%;display:inline-block;height:122px;">
           <div class="clearfix" style="padding-left:10px;line-height:1.5;">
@@ -35,7 +35,7 @@
                   <span style="color:#a0a0a0;">电话:</span>
                   <span style="color:#000;">{{ mainData.ContactInfo.PhoneNumber }}</span>
                 </div>
-                <div class="inline-item">
+                <div class="inline-item" style="width:400px;">
                   <span style="color:#a0a0a0;">官网:</span>
                   <span style="color:#000;">{{ mainData.ContactInfo.WebSite[0].Url }}</span>
                 </div>
@@ -45,14 +45,14 @@
                   <span style="color:#a0a0a0;">邮箱:</span>
                   <span style="color:#000;">{{ mainData.ContactInfo.Email }}</span>
                 </div>
-                <div class="inline-item">
+                <div class="inline-item" style="width:400px;">
                   <span style="color:#a0a0a0;">地址:</span>
                   <span style="color:#000;">{{ mainData.Address }}</span>
                 </div>
               </div>
               <div>
                 <span style="color:#a0a0a0;">简介:</span>
-                <span class="strong">{{ }}</span>
+                <span class="strong">{{ mainData.introduction?mainData.introduction.substring(0,150):""}} ...</span>
               </div>
             </div>
           </div>
@@ -206,6 +206,11 @@
                 <td>登记机关:</td>
                 <td>{{ mainData.BelongOrg }}</td>
               </tr>
+               <tr class="bg-section">
+                 <td>经营范围:</td>
+                <td colspan="5">{{ mainData.Scope }}</td>
+
+              </tr>
             </tbody>
           </table>
         </template>
@@ -217,12 +222,12 @@
         </template>
         <template slot="content">
           <el-table
-            :data="mainData_guquan.Children"
+            :data="mainData_guquan.children"
             height="250"
             border
             style="width: 100%">
             <el-table-column
-              prop="Name"
+              prop="name"
               label="股东名称"
               width="180">
             </el-table-column>
@@ -363,6 +368,7 @@ export default {
       keyWord:'',
       anchorActive:'gd',
       mainData:{
+        Employees:[],
         companyInfo:{},
         guquan:[{}],
         shareholder:[],
@@ -376,6 +382,18 @@ export default {
     }
   },
   methods:{
+  loadImg(name){
+    let img = null;
+    try{
+      img = require('../../assets/'+name+'.jpg');
+    }catch(e){
+      img = require('../../assets/no_image.jpg');
+    }finally{
+
+    }
+    
+    return img;
+  },
     handleSearch(){
       this.$router.push({
         path:'/search',
@@ -455,5 +473,8 @@ export default {
   }
   .bg-section td{
     padding:6px;
+  }
+  .bg-section td:first-child{
+    width:80px;
   }
 </style>
