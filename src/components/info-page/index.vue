@@ -253,7 +253,7 @@
               label="操作">
               <template slot-scope="scope">
                 <el-button size="small" @click="showFengxin(scope.row)">查看风险图谱</el-button>
-              <template>
+              </template>
             </el-table-column>
           </el-table>
         </template>
