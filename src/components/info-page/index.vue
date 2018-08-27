@@ -9,7 +9,7 @@
         <div style="float:right;">
           <input type="text"
           v-model="keyWord"
-          style="padding:8px 10px;width:300px;border-radius:2px 0px 0px 2px;border: 0px;outline:none" @keyup.enter="handleSearch" placeholder="请输入公司名称、人名、品牌名称等关键词"><div class="search-btn" @click="handleSearch"> 搜索 </div>
+          style="padding:8px 10px;width:300px;border-radius:2px 0px 0px 2px;border: 0px;outline:none" @keyup.enter="handleSearch" placeholder="请输入公司名称"><div class="search-btn" @click="handleSearch"> 搜索 </div>
         </div>
       </div>
     </div>
@@ -140,7 +140,7 @@
                 <td>组织机构代码:</td>
                 <td>{{ mainData.OrgNo }}</td>
                 <td>公司类型:</td>
-                <td>{{ mainData.StockType }}</td>
+                <td>{{  }}</td>
               </tr>
               <tr class="bg-section">
                 <td>所属行业:</td>
@@ -167,7 +167,7 @@
         <template slot="content">
           <el-table
             :data="mainData_guquan.children"
-            height="250"
+             max-height="300"
             border
             style="width: 100%">
             <el-table-column
@@ -198,7 +198,7 @@
         <template slot="content">
           <el-table
             :data="mainDate_shouyiren"
-            height="250"
+            max-height="150"
             border
             style="width: 100%">
             <el-table-column
@@ -232,7 +232,8 @@
         <template slot="content">
           <el-table
             :data="mainData.Partners"
-            height="250"
+            max-height="300"
+            margin-bottom="20px"
             border
             style="width: 100%">
             <el-table-column
@@ -266,7 +267,7 @@
          <template slot="content">
           <el-table
             :data="mainData.Employees"
-            height="250"
+             max-height="300"
             border
             style="width: 100%">
             <el-table-column
@@ -278,6 +279,42 @@
               prop="Job"
               label="职位"
               >
+            </el-table-column>
+          </el-table>
+        </template>
+      </Table>
+       <Table id="fx">
+        <template slot="title">
+          失信信息
+          <span style="font-size:10px;">
+          </span>
+        </template>
+        <template slot="content">
+          <el-table
+            :data="mainData_shixin"
+            max-height="300"
+            border
+            style="width: 100%;margin-bottom:20px">
+            <el-table-column
+              prop="Name"
+              label="失信名称/姓名"
+              width="180">
+            </el-table-column>
+            <el-table-column
+              prop="Ownername"
+              label="法定代表人/负责人">
+            </el-table-column>
+            <el-table-column
+              prop="Orgno"
+              label="组织机构代码">
+            </el-table-column>
+            <el-table-column
+              prop="Executegov"
+              label="执行法院">
+            </el-table-column>
+             <el-table-column
+              prop="Publicdate"
+              label="发布时间">
             </el-table-column>
           </el-table>
         </template>
@@ -323,6 +360,7 @@ export default {
       openGuquan:false,
       mainData_guquan:[],
       mainDate_shouyiren:[],
+      mainData_shixin:[],
     }
   },
   methods:{
@@ -383,9 +421,11 @@ export default {
         this.mainData_guquan = JSON.parse(res.data.data.guquan[0].children).Result;
         //记录投资图谱
         sessionStorage.setItem('mainData_touzi',JSON.stringify(JSON.parse(res.data.data.touzitupu[0].children).Result))
-
+        //失信
+         this.mainData_shixin = JSON.parse(res.data.data.shixin[0].discreSx).Result;
+         //受益人
         this.mainDate_shouyiren=[JSON.parse(res.data.data.beneficiaries[0].beneficiaryR).Result];
-        console.log(this.mainData.ContactInfo)
+        console.log(this.mainData_shixin[0].Name)
       }
     });
   }

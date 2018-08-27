@@ -9,7 +9,7 @@
         <div style="float:right;">
           <input type="text"
             v-model="keyWord"
-          style="padding:8px 10px;width:300px;border-radius:2px 0px 0px 2px;border: 0px;outline:none" @keyup.enter="getCompany" placeholder="请输入公司名称、人名、品牌名称等关键词"><div class="search-btn" @click="getCompany"> 搜索 </div>
+          style="padding:8px 10px;width:300px;border-radius:2px 0px 0px 2px;border: 0px;outline:none" @keyup.enter="getCompany" placeholder="请输入公司名称"><div class="search-btn" @click="getCompany"> 搜索 </div>
         </div>
       </div>
     </div>
@@ -68,7 +68,7 @@ export default {
     }
   },
   methods:{
-   
+
     dealJSONToObj(data){
       this.companyList.forEach(item=>{
         item.companyGsxx = JSON.parse(item.companyGsxx);

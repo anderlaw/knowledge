@@ -9,7 +9,7 @@
       <div style="float:right;">
         <input type="text"
         v-model="keyWord"
-        style="padding:8px 10px;width:300px;border-radius:2px 0px 0px 2px;border: 0px;outline:none" @keyup.enter="handleSearch" placeholder="请输入公司名称、人名、品牌名称等关键词"><div class="search-btn" @click="handleSearch"> 搜索 </div>
+        style="padding:8px 10px;width:300px;border-radius:2px 0px 0px 2px;border: 0px;outline:none" @keyup.enter="handleSearch" placeholder="请输入公司名称"><div class="search-btn" @click="handleSearch"> 搜索 </div>
       </div>
     </div>
   </div>
@@ -20,8 +20,8 @@
     <span @click="switchType('投资图谱')" :class="{ navbar__item:true,active:currentType=='投资图谱' }">
       投资图谱
     </span>
-    <span @click="switchType('关系图谱')" :class="{ navbar__item:true,active:currentType=='关系图谱' }">
-      关系图谱
+    <span @click="switchType('企业图谱')" :class="{ navbar__item:true,active:currentType=='企业图谱' }">
+      企业图谱
     </span>
   </div>
   <div class="chart_bg" id="scope">
