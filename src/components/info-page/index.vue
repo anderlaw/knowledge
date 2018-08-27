@@ -228,31 +228,35 @@
         </template>
         <template slot="content">
           <el-table
-            :data="mainDate_shouyiren"
-            height="250"
+            :data="mainData_shixin"
+            max-height="300"
             border
-            style="width: 100%">
+            style="width: 100%;margin-bottom:20px">
             <el-table-column
-              prop="CompanyName"
-              label="公司名称"
+              prop="Name"
+              label="失信名称/姓名"
               width="180">
             </el-table-column>
             <el-table-column
-              prop="OperName"
-              label="受益人">
+              prop="Ownername"
+              label="法定代表人/负责人">
             </el-table-column>
             <el-table-column
-              prop="FindMatched"
-              label="受益人说明">
+              prop="Orgno"
+              label="组织机构代码">
             </el-table-column>
             <el-table-column
-              prop="Remark"
-              label="条文依据">
+              prop="Executegov"
+              label="执行法院">
+            </el-table-column>
+             <el-table-column
+              prop="Publicdate"
+              label="发布时间">
             </el-table-column>
             <el-table-column
               label="操作">
               <template slot-scope="scope">
-                <el-button size="small" @click="showFengxin(scope.row)">查看风险图谱</el-button>
+                <el-button type="primary" size="small" @click="openFengxian = true">查看风险图谱</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -319,42 +323,6 @@
           </el-table>
         </template>
       </Table>
-       <Table id="fx">
-        <template slot="title">
-          失信信息
-          <span style="font-size:10px;">
-          </span>
-        </template>
-        <template slot="content">
-          <el-table
-            :data="mainData_shixin"
-            max-height="300"
-            border
-            style="width: 100%;margin-bottom:20px">
-            <el-table-column
-              prop="Name"
-              label="失信名称/姓名"
-              width="180">
-            </el-table-column>
-            <el-table-column
-              prop="Ownername"
-              label="法定代表人/负责人">
-            </el-table-column>
-            <el-table-column
-              prop="Orgno"
-              label="组织机构代码">
-            </el-table-column>
-            <el-table-column
-              prop="Executegov"
-              label="执行法院">
-            </el-table-column>
-             <el-table-column
-              prop="Publicdate"
-              label="发布时间">
-            </el-table-column>
-          </el-table>
-        </template>
-      </Table>
     </div>
     <!-- 股权对话框 -->
     <el-dialog
@@ -366,6 +334,18 @@
       </div>
       <span slot="footer" class="dialog-footer">
         <el-button type="primary" @click="openGuquan = false">关闭</el-button>
+      </span>
+    </el-dialog>
+    <!-- 风险传导图谱 -->
+    <el-dialog
+      title="风险传导图谱"
+      :visible.sync="openFengxian"
+      @open="renderGuquan"
+      width="40%">
+      <div id="guquan" style="text-align:center;">
+      </div>
+      <span slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="openFengxian = false">关闭</el-button>
       </span>
     </el-dialog>
   </div>
@@ -397,6 +377,8 @@ export default {
       mainData_guquan:[],
       mainDate_shouyiren:[],
       mainData_shixin:[],
+      //风险传导对话框
+      openFengxian:false,
     }
   },
   methods:{
