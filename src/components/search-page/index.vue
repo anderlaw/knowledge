@@ -13,7 +13,8 @@
         </div>
       </div>
     </div>
-    <div style="width:1000px;margin:0 auto;text-align:left;">
+    <div style="width:1000px;margin:14px auto 0;text-align:left;">
+      <search-tag/>
       <span>为您查到 <span style="color:red;">{{totalNumber}}</span> 家符合条件的企业</span>
       <div class="clearfix table__head">
         <div class="fl table__head__left">
@@ -30,7 +31,7 @@
           </div>
           <div class="fl" style="width:20%;height:100%;text-align:center;">
            {{ item.companyGsxx.Result.Status }}
-           
+
           </div>
         </div>
       </div>
@@ -54,10 +55,11 @@
 <script>
 import searchBar from '@/components/search-bar'
 import searchItem from '@/components/search-item'
+import searchTag from '@/components/tag'
 //http
 import { getCompany } from '@/http/company'
 export default {
-  components:{searchBar,searchItem},
+  components:{searchBar,searchItem,searchTag},
   data(){
     return {
       keyWord:'',
@@ -68,7 +70,7 @@ export default {
     }
   },
   methods:{
-   
+
     dealJSONToObj(data){
       this.companyList.forEach(item=>{
         item.companyGsxx = JSON.parse(item.companyGsxx);

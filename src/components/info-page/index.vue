@@ -70,7 +70,7 @@
           最终受益人
         </div>
         <div :class="{ 'anchor-link':true,'active':anchorActive == 'fx' }" @click='jumpToAnchor("fx")'>
-          失信信息
+          风险传导
         </div>
       </div>
       <!-- 工商信息 -->
@@ -221,7 +221,43 @@
           </el-table>
         </template>
       </Table>
-
+      <!-- 风险传导 -->
+      <Table id="fx">
+        <template slot="title">
+          风险传导
+        </template>
+        <template slot="content">
+          <el-table
+            :data="mainDate_shouyiren"
+            height="250"
+            border
+            style="width: 100%">
+            <el-table-column
+              prop="CompanyName"
+              label="公司名称"
+              width="180">
+            </el-table-column>
+            <el-table-column
+              prop="OperName"
+              label="受益人">
+            </el-table-column>
+            <el-table-column
+              prop="FindMatched"
+              label="受益人说明">
+            </el-table-column>
+            <el-table-column
+              prop="Remark"
+              label="条文依据">
+            </el-table-column>
+            <el-table-column
+              label="操作">
+              <template slot-scope="scope">
+                <el-button size="small" @click="showFengxin(scope.row)">查看风险图谱</el-button>
+              <template>
+            </el-table-column>
+          </el-table>
+        </template>
+      </Table>
       <!-- 对外投资 -->
       <Table>
         <template slot="title">
