@@ -268,7 +268,6 @@
           <el-table
             :data="mainData.Partners"
             max-height="300"
-            margin-bottom="20px"
             border
             style="width: 100%">
             <el-table-column
@@ -304,7 +303,7 @@
             :data="mainData.Employees"
              max-height="300"
             border
-            style="width: 100%">
+            style="width: 100%;margin-bottom: 20px">
             <el-table-column
               prop="Name"
               label="名称"
