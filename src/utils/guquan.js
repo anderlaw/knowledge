@@ -1,7 +1,7 @@
 import * as d3 from 'd3'
 export default function(data,selector){
   var margin = {top: 30, right: 20, bottom: 30, left: 20},
-    width = 300,
+    width = 500,
     barHeight = 30,
     barWidth = (width - margin.left - margin.right) * 0.8;
 
@@ -67,9 +67,15 @@ function update(source) {
 
   nodeEnter.append("text")
       .attr("dy", 3.5)
+      .attr("dx", 90)
+      .text(function(d) { return d.data.name });
+  nodeEnter.append("text")
+      .attr("dy", 3.5)
       .attr("dx", 5.5)
-      .text(function(d) { return d.data.name; });
-
+      .style('fill','red')
+      .text(function(d) {
+        return "持股比例:"+parseFloat(d.data.FundedRatio.split('%')[0]).toFixed(2)+"%";
+      });
   // Transition nodes to their new position.
   nodeEnter.transition()
       .duration(duration)

@@ -122,7 +122,7 @@
                 <td>注册资本:</td>
                 <td>{{mainData.RegistCapi}}</td>
                 <td>实缴资本:</td>
-                <td>{{  }}</td>
+                <td>{{ mainData.RegistCapi }}</td>
                 <td>经营状态:</td>
                 <td>{{ mainData.Status }}</td>
               </tr>
