@@ -114,3 +114,6 @@
   stroke: #abcdf3;
   stroke-width: 1.5px;
 }
+.el-dialog{
+  margin-top: 20px !important;
+}

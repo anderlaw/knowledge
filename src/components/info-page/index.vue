@@ -225,6 +225,7 @@
       <Table id="fx">
         <template slot="title">
           风险传导
+          <el-button style="float:right;" type="primary" size="small" @click="openFengxian = true">查看风险图谱</el-button>
         </template>
         <template slot="content">
           <el-table
@@ -252,12 +253,6 @@
              <el-table-column
               prop="Publicdate"
               label="发布时间">
-            </el-table-column>
-            <el-table-column
-              label="操作">
-              <template slot-scope="scope">
-                <el-button type="primary" size="small" @click="openFengxian = true">查看风险图谱</el-button>
-              </template>
             </el-table-column>
           </el-table>
         </template>
@@ -338,14 +333,15 @@
     </el-dialog>
     <!-- 风险传导图谱 -->
     <el-dialog
+
       title="风险传导图谱"
       :visible.sync="openFengxian"
-      @open="renderGuquan"
-      width="40%">
-      <div id="guquan" style="text-align:center;">
+      @open="renderFengxian"
+      width="70%">
+      <div id="fengxian" ref="fengxian" style="text-align:center;height:420px;">
       </div>
       <span slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="openFengxian = false">关闭</el-button>
+        <el-button size="small" type="primary" @click="openFengxian = false">关闭</el-button>
       </span>
     </el-dialog>
   </div>
@@ -358,6 +354,7 @@ import PeopleTable from '@/components/table-renyuan'
 
 import { getInfoGongShang , getInfoGuQuan} from '@/http/info'
 import renderGuquan from '@/utils/guquan'
+import renderFengxian from '@/utils/fengxian'
 export default {
   components:{ Table, Shouyiren, PeopleTable },
   data(){
@@ -428,6 +425,12 @@ export default {
         renderGuquan(this.mainData_guquan,'#guquan')
       })
 
+    },
+    renderFengxian(){
+      console.log(this.$refs.fengxian)
+      this.$nextTick(function(){
+        renderFengxian(this.mainData_guquan,'#fengxian')
+      })
     }
   },
   mounted(){
@@ -479,4 +482,5 @@ export default {
   .bg-section td:first-child{
     width:80px;
   }
+
 </style>

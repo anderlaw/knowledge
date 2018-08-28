@@ -14,15 +14,7 @@
     </div>
   </div>
   <div class="navbar">
-    <!-- <span @click="switchType('企业图谱')" :class="{ navbar__item:true,active:currentType=='企业图谱' }">
-      企业图谱
-    </span> -->
-    <span @click="switchType('投资图谱')" :class="{ navbar__item:true,active:currentType=='投资图谱' }">
-      投资图谱
-    </span>
-    <span @click="switchType('企业图谱')" :class="{ navbar__item:true,active:currentType=='企业图谱' }">
-      企业图谱
-    </span>
+    <el-button size="small" type="primary" @click="jumpGunalian">查看关联图谱</el-button>
   </div>
   <div class="chart_bg" id="scope">
   </div>
@@ -49,8 +41,8 @@ export default {
         }
       })
     },
-    switchType(type){
-      this.currentType = type;
+    jumpGunalian(){
+      window.open('http://172.190.16.78/index.html')
     },
     renderTouzi(){
       this.myChart.showLoading();

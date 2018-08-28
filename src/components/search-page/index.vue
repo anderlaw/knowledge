@@ -14,7 +14,7 @@
       </div>
     </div>
     <div style="width:1000px;margin:14px auto 0;text-align:left;">
-      <search-tag/>
+      <search-tag @tagChange="handleTagChange"/>
       <span>为您查到 <span style="color:red;">{{totalNumber}}</span> 家符合条件的企业</span>
       <div class="clearfix table__head">
         <div class="fl table__head__left">
@@ -67,6 +67,7 @@ export default {
       totalNumber:0,
       currentPage:1,
       currentSize:10,
+      tagParams:null,
     }
   },
   methods:{
@@ -77,11 +78,13 @@ export default {
       })
     },
     getCompany(){
-      getCompany({
+      getCompany(
+        Object.assign({
         companyCorpName:this.keyWord,
         pageNumber:this.currentPage,
         pageSize:this.currentSize
-      }).then(res=>{
+      },this.tagParams)
+      ).then(res=>{
         console.log(res)
         if(res.data.flag){
           //
@@ -100,6 +103,10 @@ export default {
     handleCurrentChange(page){
       this.currentPage = page;
       this.getCompany();
+    },
+    handleTagChange(obj){
+      this.tagParams = obj;
+      this.getCompany()
     },
     initFilterType_keyWord(){
       if(this.$route.query){
