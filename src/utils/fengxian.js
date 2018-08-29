@@ -13,19 +13,35 @@ export default function(data,selector){
             data: [data],
 
             top: '1%',
-            left: '7%',
+            left: '13%',
             bottom: '1%',
-            right: '20%',
-
-            symbolSize: 7,
+            right: '25%',
+            symbolSize: 10,
 
             label: {
                 normal: {
-                    position: 'left',
+                    //position: 'left',
+                    position: ['50%','50%'],
                     verticalAlign: 'middle',
                     align: 'right',
-                    fontSize: 9
-                }
+                    offset:[-5,0],
+                    fontSize: '16px',
+                    formatter:function(val){
+                      if(val.data.danger === true){
+                        return "{danger|"+ val.data.name +"}";
+                      }else{
+                        return val.data.Name
+                      }
+                    },
+                    rich:{
+                      danger:{
+                        color:'red',
+                        fontSize:'20px',
+                        fontWeight:'bold'
+                      }
+                    }
+                },
+
             },
 
             leaves: {

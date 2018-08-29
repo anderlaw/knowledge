@@ -10,18 +10,24 @@
     </div>
     <div class="search-wrapper" style="width:800px;margin:110px auto 0;text-align:center;">
       <h1 style="color:#fff;letter-spacing:4px;">企业知识图谱</h1>
-      <!-- <div class="labels">
+      <div class="labels">
         <span :class="{ label__item:true,active:currentLabel === 'companyCorpName' }" @click="switchLabel('companyCorpName')">企业名</span>
         <span :class="{ label__item:true,active:currentLabel === 'companyName' }" @click="switchLabel('companyName')">法人/股东</span>
-        <span :class="{ label__item:true,active:currentLabel === 'companyPhones' }" @click="switchLabel('companyPhones')">电话</span>
+        <span :class="{ label__item:true,active:currentLabel === 'companyIndustry' }" @click="switchLabel('companyIndustry')">行业</span>
         <span :class="{ label__item:true,active:currentLabel === 'companyAddress' }" @click="switchLabel('companyAddress')">地址</span>
-        <span :class="{ label__item:true,active:currentLabel === 'companyScope' }" @click="switchLabel('companyScope')">经营范围</span>
-      </div> -->
+      </div>
       <div class="search-box" style="margin-top:30px;">
         <div style="display:inline-block;position:relative;">
           <input type="text" v-model="keyWord" @keyup.enter="doSearch" style="padding:12px 22px;width:500px;border-radius:4px;border: 0px;outline:none" placeholder="请输入公司名称查询">
           <span class="search-btn" @click="doSearch"> 搜索 </span>
         </div>
+      </div>
+      <!-- 热搜 -->
+      <div style="margin-top:20px;color:#fff;font-size:14px;">
+        热搜:
+        <span class="resou" @click="jumpto('海通证券股份有限公司')">海通证券股份有限公司</span>
+        <span class="resou" @click="jumpto('中信')">中信</span>
+        <span class="resou" @click="jumpto('华泰')">华泰</span>
       </div>
     </div>
   </div>
@@ -30,11 +36,13 @@
 
 <script>
 import filterSection from  '@/components/filters'
+import { getCompany } from '@/http/company'
 export default {
   components:{ filterSection },
   data(){
     return {
-      keyWord:''
+      keyWord:'',
+      currentLabel:'companyCorpName',
     }
   },
   methods:{
@@ -43,6 +51,35 @@ export default {
         path:'/search',
         query:{
           keyWord:this.keyWord
+        }
+      })
+    },
+    switchLabel(label){
+      this.currentLabel = label;
+    },
+    jumpto(keyword){
+      this.$router.push({
+        path:'/search',
+        query:{
+          keyWord:keyword
+        }
+      })
+    },
+    doSearch(){
+       getCompany({
+        [this.currentLabel]:this.keyWord,
+        pageNumber:1,
+        pageSize:10
+      }).then(res=>{
+        console.log(res)
+        if(res.data.flag){
+          sessionStorage.setItem('dataFromHome',JSON.stringify(res.data));
+          this.$router.push({
+            path:'/search',
+            query:{
+              keyWord:this.keyWord
+            }
+          })
         }
       })
     }
@@ -156,5 +193,13 @@ header::after{
 }
 .hot > .title{
   color: #fff;
+}
+.resou{
+  color: #bac2c7;
+  margin:0 10px;
+  cursor: pointer;
+}
+.resou:hover{
+  text-decoration: underline;
 }
 </style>

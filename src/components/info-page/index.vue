@@ -225,7 +225,6 @@
       <Table id="fx">
         <template slot="title">
           风险传导
-          <el-button style="float:right;" type="primary" size="small" @click="openFengxian = true">查看风险图谱</el-button>
         </template>
         <template slot="content">
           <el-table
@@ -234,9 +233,11 @@
             border
             style="width: 100%;margin-bottom:20px">
             <el-table-column
-              prop="Name"
               label="失信名称/姓名"
               width="180">
+              <template slot-scope="scope">
+                <span class="link" @click="showFengxian(mainData.Name,scope.row.Name)">{{ scope.row.Name }}</span>
+              </template>
             </el-table-column>
             <el-table-column
               prop="Ownername"
@@ -304,6 +305,13 @@
              max-height="300"
             border
             style="width: 100%;margin-bottom: 20px">
+            <el-table-column
+
+              width="60"
+              type="index"
+              label="序号"
+              >
+            </el-table-column>
             <el-table-column
               prop="Name"
               label="名称"
@@ -375,6 +383,7 @@ export default {
       mainData_shixin:[],
       //风险传导对话框
       openFengxian:false,
+      mainData_fengxian:{}
     }
   },
   methods:{
@@ -426,10 +435,21 @@ export default {
 
     },
     renderFengxian(){
-      console.log(this.$refs.fengxian)
       this.$nextTick(function(){
-        renderFengxian(this.mainData_guquan,'#fengxian')
+        renderFengxian(this.mainData_fengxian,'#fengxian')
       })
+    },
+    showFengxian(parent,child){
+      let renderData = {};
+      renderData.Name = parent;
+      renderData.children = this.mainData.Branches.slice(0,20);
+      renderData.children[(renderData.children.length/2).toFixed(0)] = {
+        name:child,
+        danger:true,//添加自定义属性将该节点标红
+      };
+      renderData = JSON.parse(JSON.stringify(renderData).replace(/Name/g,'name'));
+      this.mainData_fengxian = renderData;
+      this.openFengxian = true;
     }
   },
   mounted(){
@@ -438,6 +458,7 @@ export default {
         //成功
 
         this.mainData = JSON.parse(res.data.data.companyInfo.companyGsxx).Result;
+        console.log(this.mainData,11111111111111)
         this.mainData_guquan = JSON.parse(res.data.data.guquan[0].children).Result;
         //记录投资图谱
         sessionStorage.setItem('mainData_touzi',JSON.stringify(JSON.parse(res.data.data.touzitupu[0].children).Result))
@@ -481,5 +502,10 @@ export default {
   .bg-section td:first-child{
     width:80px;
   }
-
+  .link{
+    cursor: pointer;
+  }
+  .link:hover{
+    text-decoration: underline;
+  }
 </style>

@@ -14,7 +14,7 @@
       </div>
     </div>
     <div style="width:1000px;margin:14px auto 0;text-align:left;">
-      <search-tag @tagChange="handleTagChange"/>
+      <search-tag @tagChange="handleTagChange($event)"/>
       <span>为您查到 <span style="color:red;">{{totalNumber}}</span> 家符合条件的企业</span>
       <div class="clearfix table__head">
         <div class="fl table__head__left">
@@ -29,8 +29,10 @@
           <div class="fl" style="width:80%;height:100%;">
             <searchItem :itemInfo="item"/>
           </div>
-          <div class="fl" style="width:20%;height:100%;text-align:center;">
-           {{ item.companyGsxx.Result.Status }}
+          <div class="fl" style="width:20%;height:100%;line-height:115px;text-align:center;">
+
+            <span style="color:red;" v-if="checkStatus(item.companyGsxx.Result.Status) == 0"> {{ item.companyGsxx.Result.Status }} </span>
+            <span style="color:green;" v-else> {{ item.companyGsxx.Result.Status }} </span>
 
           </div>
         </div>
@@ -70,8 +72,17 @@ export default {
       tagParams:null,
     }
   },
-  methods:{
+  filters:{
 
+  },
+  methods:{
+    checkStatus(value){
+      if(value.indexOf('在业') !=-1 || value.indexOf('在营') !=-1|| value.indexOf('开业') !=-1|| value.indexOf('在册') != -1 || value.indexOf('存续') !=-1){
+        return 1
+      }else{
+        return 0
+      }
+    },
     dealJSONToObj(data){
       this.companyList.forEach(item=>{
         item.companyGsxx = JSON.parse(item.companyGsxx);
@@ -105,12 +116,30 @@ export default {
       this.getCompany();
     },
     handleTagChange(obj){
+      console.log(obj)
       this.tagParams = obj;
       this.getCompany()
     },
     initFilterType_keyWord(){
       if(this.$route.query){
         this.keyWord = this.$route.query.keyWord;
+      }
+    },
+    getHomeDataFromSesstionOrReload(){
+      let data = JSON.parse(sessionStorage.getItem('dataFromHome'));
+      if(data){
+        //数据应该来自主页
+        if(data.flag){
+          //
+          this.companyList = data.data.companyInfo;
+          this.dealJSONToObj();
+          this.totalNumber = data.data.total;
+          //删除sessiont
+          sessionStorage.removeItem('dataFromHome')
+        }
+      }else{
+        //数据应该来自本页
+        this.getCompany();
       }
     }
   },
@@ -119,7 +148,7 @@ export default {
   },
   mounted() {
     this.initFilterType_keyWord();
-    this.getCompany();
+    this.getHomeDataFromSesstionOrReload();
   },
 }
 </script>
