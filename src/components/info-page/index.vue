@@ -139,8 +139,8 @@
                 <td>{{ mainData.No }}</td>
                 <td>组织机构代码:</td>
                 <td>{{ mainData.OrgNo }}</td>
-                <td>公司类型:</td>
-                <td>{{  }}</td>
+                <td>股票类型:</td>
+                <td>{{ mainData.StockType }}</td>
               </tr>
               <tr class="bg-section">
                 <td>所属行业:</td>
