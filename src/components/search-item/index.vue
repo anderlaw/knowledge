@@ -8,7 +8,7 @@
       <div class="clearfix">
         <div class="info_item">
           <span class="key">董事长</span>
-          <span class="value" style="color:#142c63;">: {{ itemInfo.companyGsxx.Result.Name }}</span>
+          <span class="value" style="color:#142c63;">: {{ itemInfo.companyGsxx.Result.OperName }}</span>
         </div>
         <div class="info_item">
           <span class="key">股本</span>
