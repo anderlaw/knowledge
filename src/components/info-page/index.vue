@@ -227,35 +227,19 @@
           风险传导
         </template>
         <template slot="content">
-          <el-table
-            :data="mainData_shixin"
-            max-height="300"
-            border
-            style="width: 100%;margin-bottom:20px">
-            <el-table-column
-              label="失信名称/姓名"
-              width="180">
-              <template slot-scope="scope">
-                <span class="link" @click="showFengxian(mainData.Name,scope.row.Name)">{{ scope.row.Name }}</span>
-              </template>
-            </el-table-column>
-            <el-table-column
-              prop="Ownername"
-              label="法定代表人/负责人">
-            </el-table-column>
-            <el-table-column
-              prop="Orgno"
-              label="组织机构代码">
-            </el-table-column>
-            <el-table-column
-              prop="Executegov"
-              label="执行法院">
-            </el-table-column>
-             <el-table-column
-              prop="Publicdate"
-              label="发布时间">
-            </el-table-column>
-          </el-table>
+          <!--  -->
+          <div style="margin-top:10px;">
+            <el-select size="small" @change="switchLayout" v-model="cytoLayouType" placeholder="请选择">
+              <el-option label="网格排列" value="breadthfirst"/>
+              <el-option label="自动排列" value="random"/>
+              <el-option label="层次排列" value="cose"/>
+              <el-option label="环形排列" value="concentric"/>
+            </el-select>
+            <div id="fengxianChart">
+
+            </div>
+          </div>
+
         </template>
       </Table>
       <!-- 对外投资 -->
@@ -362,6 +346,9 @@ import PeopleTable from '@/components/table-renyuan'
 import { getInfoGongShang , getInfoGuQuan} from '@/http/info'
 import renderGuquan from '@/utils/guquan'
 import renderFengxian from '@/utils/fengxian'
+//test data
+import testData from './data.js'
+let cytoscape = require('cytoscape');
 export default {
   components:{ Table, Shouyiren, PeopleTable },
   data(){
@@ -383,7 +370,9 @@ export default {
       mainData_shixin:[],
       //风险传导对话框
       openFengxian:false,
-      mainData_fengxian:{}
+      mainData_fengxian:{},
+      cytoIns:null,
+      cytoLayouType:'breadthfirst'
     }
   },
   methods:{
@@ -450,9 +439,71 @@ export default {
       renderData = JSON.parse(JSON.stringify(renderData).replace(/Name/g,'name'));
       this.mainData_fengxian = renderData;
       this.openFengxian = true;
+    },
+    //风险图表
+    renderFengxianChart(){
+      var result = {}
+      result.nodes = testData.nodes.map(item=>{
+          return { data:item };
+      })
+      result.edges = testData.links.map(item=>{
+          return { data:item };
+      })
+
+      result = JSON.stringify(result).replace(/from/g,'source').replace(/to/g,'target');
+      result = JSON.parse(result);
+      console.log(result)
+      this.cytoIns = cytoscape({
+            container: document.getElementById('fengxianChart'),
+            elements: result,
+            style:cytoscape.stylesheet()
+            .selector('node')
+            .style({
+                'content': 'data(name)',
+                'font-size':15,
+                'width':20,
+                'height':20,
+                'text-background-opacity':0.6,
+                'text-background-color':'#cfe3f1',
+                'text-background-shape' : 'roundrectangle',
+                'text-background-padding':'4px',
+                'color':'#2e2b2b',
+                'background-color': function( ele ){
+                    let riskValue = ele.data('properties').riskValue;
+                    if(riskValue > 0){
+                        return '#ff0015'
+                    }else{
+                        return "#69c0fe"
+                    }
+                }
+            }).selector('edge')
+            .style({
+                'curve-style': function( ele ){
+                    let riskValue = ele.data('properties');
+                    return 'bezier';
+                },
+                'control-point-step-size':20,
+                'control-point-distance':200,
+                'width':1.4,
+                'target-arrow-shape':'triangle',
+                'line-color': '#9dbaea',
+                'target-arrow-color': '#9dbaea'
+            }),
+            layout: {
+                name: 'breadthfirst',
+                fit: true,
+            }
+        });
+    },
+    //切换布局
+    switchLayout(value){
+      this.cytoIns.layout({
+          name: value
+      }).run();
     }
   },
   mounted(){
+    this.renderFengxianChart();
     getInfoGongShang(this.$route.query.id).then(res=>{
       if(res.data.flag == true){
         //成功
@@ -507,5 +558,9 @@ export default {
   }
   .link:hover{
     text-decoration: underline;
+  }
+  /* 风险 图表 */
+  #fengxianChart{
+    height:600px;
   }
 </style>
